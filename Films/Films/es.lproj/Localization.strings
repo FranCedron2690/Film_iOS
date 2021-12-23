@@ -1,0 +1,17 @@
+/* 
+  Localization.strings
+  Films
+
+  Created by fjcedron@hiberus.com on 21/12/21.
+*/
+
+//HOME
+"UserText" = "Usuario:";
+"PasswordText" = "Cotraseña:";
+"UserPlaceholderText" = "Usuario....";
+"PasswordPlaceholderText" = "Cotraseña....";
+"LoginButtonText" = "ENTRAR";
+"RetryLoginButtonText" = "REINTENTAR";
+
+//LIST MOVIES
+"PopularText" = "Popular";

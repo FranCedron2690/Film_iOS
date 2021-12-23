@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListViewController" customModule="Films" customModuleProvider="target">
+            <connections>
+                <outlet property="tableViewMovieCategories" destination="MH7-sN-1SX" id="jds-eB-5FT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewContentLists" destination="MH7-sN-1SX" id="yw8-KY-nBe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MH7-sN-1SX">
+                    <rect key="frame" x="15" y="59" width="384" height="757"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jWz-3d-xmP">
+                    <rect key="frame" x="15" y="831" width="384" height="32"/>
+                    <segments>
+                        <segment title="Por Cateorias"/>
+                        <segment title="Populares"/>
+                    </segments>
+                    <color key="selectedSegmentTintColor" red="0.4941176471" green="0.79607844350000001" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <connections>
+                        <action selector="onSegmentPressed:" destination="-1" eventType="valueChanged" id="Opl-bA-nuC"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jWz-3d-xmP" secondAttribute="trailing" constant="15" id="1ZV-YX-FMj"/>
+                <constraint firstItem="MH7-sN-1SX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="7W3-fE-xpP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MH7-sN-1SX" secondAttribute="trailing" constant="15" id="9HI-Vl-qlD"/>
+                <constraint firstItem="jWz-3d-xmP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="GJc-9c-mHj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jWz-3d-xmP" secondAttribute="bottom" id="PBJ-JE-IE3"/>
+                <constraint firstItem="MH7-sN-1SX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="V6o-zK-MuE"/>
+                <constraint firstItem="jWz-3d-xmP" firstAttribute="top" secondItem="MH7-sN-1SX" secondAttribute="bottom" constant="15" id="pq8-Ga-UXs"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="124.55357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
