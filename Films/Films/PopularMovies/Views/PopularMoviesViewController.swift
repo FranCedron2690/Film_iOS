@@ -14,6 +14,7 @@ class PopularMoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var viewModel:PopularMoviesViewModel?
     
     private var popularMovies: [MoviesData]?
     private var filterPopularMovies: [MoviesData]?
@@ -29,7 +30,11 @@ class PopularMoviesViewController: UIViewController {
         
         addHeaderFilter ()
         showTable(isVisible: false)
-        downloadPopularListMovies()
+        
+        viewModel = PopularMoviesViewModel()//provisional se crea aquí
+        viewModel?.view = self
+        viewModel?.downloadDataDelegate = self
+        viewModel?.downloadPopularListMovies()
     }
     
     @IBAction func onSegmentPressed(_ sender: UISegmentedControl) {
@@ -73,27 +78,6 @@ class PopularMoviesViewController: UIViewController {
             tableView.isHidden = true
         }
     }
-    
-    private func downloadPopularListMovies() {
-        NetworkManager.instance.makeRequest(endpointToExecute: .getPopularMovies).subscribe { [weak self] response in
-            do {
-                let decodeData = try JSONDecoder().decode(MovieListModel.self, from: response.data)
-                self?.popularMovies = decodeData.results
-                self?.showTable(isVisible: true)
-                self?.tableView.reloadData()
-            }
-            catch {
-                print ("Error decoding data from popular movies: \(error)")
-            }
-        } onError: { errorReceived in
-            print ("Error receiving data from popular movies: \(errorReceived)")
-        } onCompleted: {
-            
-        } onDisposed: {
-            
-        }.disposed(by: disposeBag)
-        
-    }
 }
 
 extension PopularMoviesViewController: UITableViewDataSource {
@@ -131,5 +115,17 @@ extension PopularMoviesViewController: UITableViewDelegate {
         let movieDetailView = MovieDetailViewController()
         movieDetailView.movieID = popularMovies?[indexPath.row].id
         self.navigationController?.pushViewController(movieDetailView, animated: true)
+    }
+}
+
+extension PopularMoviesViewController:DownloadDataFromView {
+    func onDownloadDataCorrect(movies: [MoviesData]) {
+        popularMovies = movies
+        showTable(isVisible: true)
+        tableView.reloadData()
+    }
+    
+    func onDownloadDataError(errorReceived: Error) {
+        print ("Error receiving data from Popular Movies: \(errorReceived)")
     }
 }

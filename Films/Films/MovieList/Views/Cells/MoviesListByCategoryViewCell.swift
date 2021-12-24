@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class MovieCategoryTableViewCell: UITableViewCell {
+class MoviesListByCategoryViewCell: UITableViewCell {
     
     //MARK: - Variables and init methods
     var selectedMovieDelegate: SelectedMovie?
@@ -17,8 +17,9 @@ class MovieCategoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var collectionMovies: UICollectionView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
+    private let viewModel = MoviesListByCategoryViewModel()
     private var categoryMovieSection: MovieCagegory?
-    private var moviesInSection: MovieListModel?
+    private var moviesInSection: [MoviesData]?
     private let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -26,7 +27,10 @@ class MovieCategoryTableViewCell: UITableViewCell {
         
         collectionMovies.dataSource = self
         collectionMovies.delegate = self
-        collectionMovies.register(UINib(nibName: "MovieCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: Constants.CellNames.movieCell)
+        collectionMovies.register(UINib(nibName: "MoviePosterImageViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: Constants.CellNames.movieCell)
+        
+        viewModel.view = self
+        viewModel.downloadDataDelegate = self
         
         isCollectionViewVisible (isVisible: false)
     }
@@ -37,30 +41,30 @@ class MovieCategoryTableViewCell: UITableViewCell {
         
         titleSectionMovies.text = categoryMovieSection?.name
         
-        donwloadSectionMoviesData ()
+        viewModel.donwloadSectionMoviesData(idCategory: category.id)
     }
     
     //MARK: - Download Data
-    private func donwloadSectionMoviesData () {
-        NetworkManager.instance.makeRequest(endpointToExecute: .getMoviesByCategory(idCategory: categoryMovieSection!.id)).subscribe { [weak self] response in
-            do {
-                self?.moviesInSection  = try JSONDecoder().decode(MovieListModel.self, from: response.data)
-                
-                self?.isCollectionViewVisible(isVisible: true)
-                
-                self?.reloadMovieCollection ()
-            }
-            catch {
-                print ("Error decoding \(String(describing: self?.categoryMovieSection?.name)) category data: \(error)")
-            }
-        } onError: { [weak self] errorReceived in
-            print ("Error decoding \(String(describing: self?.categoryMovieSection?.name)) category data: \(errorReceived)")
-        } onCompleted: {
-            
-        } onDisposed: {
-            
-        }.disposed(by: disposeBag)
-    }
+//    private func donwloadSectionMoviesData () {
+//        NetworkManager.instance.makeRequest(endpointToExecute: .getMoviesByCategory(idCategory: categoryMovieSection!.id)).subscribe { [weak self] response in
+//            do {
+//                self?.moviesInSection  = try JSONDecoder().decode(MovieListModel.self, from: response.data)
+//                
+//                self?.isCollectionViewVisible(isVisible: true)
+//                
+//                self?.reloadMovieCollection ()
+//            }
+//            catch {
+//                print ("Error decoding \(String(describing: self?.categoryMovieSection?.name)) category data: \(error)")
+//            }
+//        } onError: { [weak self] errorReceived in
+//            print ("Error decoding \(String(describing: self?.categoryMovieSection?.name)) category data: \(errorReceived)")
+//        } onCompleted: {
+//            
+//        } onDisposed: {
+//            
+//        }.disposed(by: disposeBag)
+//    }
     
     //MARK: - Manage UI Screen
     private func isCollectionViewVisible (isVisible:Bool){
@@ -92,16 +96,16 @@ class MovieCategoryTableViewCell: UITableViewCell {
 }
 
 //MARK: - Extensions from CollectionView
-extension MovieCategoryTableViewCell: UICollectionViewDataSource{
+extension MoviesListByCategoryViewCell: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return moviesInSection?.results.count ?? 0
+        return moviesInSection?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellNames.movieCell, for: indexPath) as! MovieCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellNames.movieCell, for: indexPath) as! MoviePosterImageViewCell
         
-        if let safeImage = moviesInSection?.results[indexPath.row].posterPath {
+        if let safeImage = moviesInSection?[indexPath.row].posterPath {
             cell.setCachingImage(pathImage: safeImage)
         }
         
@@ -109,11 +113,23 @@ extension MovieCategoryTableViewCell: UICollectionViewDataSource{
     }
 }
 
-extension MovieCategoryTableViewCell: UICollectionViewDelegateFlowLayout{
+extension MoviesListByCategoryViewCell: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let idMovie = moviesInSection?.results[indexPath.row].id else { return }
+        guard let idMovie = moviesInSection?[indexPath.row].id else { return }
         
         selectedMovieDelegate?.onSelectedMovie(movieID: idMovie)
+    }
+}
+
+extension MoviesListByCategoryViewCell: DownloadDataFromView{
+    func onDownloadDataCorrect(movies: [MoviesData]) {
+        moviesInSection  = movies
+        isCollectionViewVisible(isVisible: true)
+        reloadMovieCollection ()
+    }
+    
+    func onDownloadDataError(errorReceived: Error) {
+        print ("Error receiving data from section \(String(describing: categoryMovieSection?.name)): \(errorReceived) ")
     }
 }

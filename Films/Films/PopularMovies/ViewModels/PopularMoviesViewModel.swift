@@ -7,29 +7,27 @@
 
 import Foundation
 import RxSwift
+import Moya
 
-class PopularMoviesViewModel {
+class PopularMoviesViewModel: BaseViewModel {
     
-    private let disposeBag = DisposeBag()
+    weak var view: PopularMoviesViewController?
     
     func downloadPopularListMovies() {
         NetworkManager.instance.makeRequest(endpointToExecute: .getPopularMovies).subscribe { [weak self] response in
             do {
                 let decodeData = try JSONDecoder().decode(MovieListModel.self, from: response.data)
-//                self?.popularMovies = decodeData.results
-//                self?.showTable(isVisible: true)
-//                self?.tableView.reloadData()
+                self?.downloadDataDelegate?.onDownloadDataCorrect(movies: decodeData.results)
             }
             catch {
-                print ("Error decoding data from popular movies: \(error)")
+                self?.downloadDataDelegate?.onDownloadDataError(errorReceived: error)
             }
-        } onError: { errorReceived in
-            print ("Error receiving data from popular movies: \(errorReceived)")
+        } onError: { [weak self] errorReceived in
+            self?.downloadDataDelegate?.onDownloadDataError(errorReceived: errorReceived)
         } onCompleted: {
             
         } onDisposed: {
             
         }.disposed(by: disposeBag)
-        
     }
 }

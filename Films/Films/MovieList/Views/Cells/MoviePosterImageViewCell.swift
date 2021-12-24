@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieCollectionViewCell: UICollectionViewCell {
+class MoviePosterImageViewCell: UICollectionViewCell {
 
     //MARK: - Variables and init methods
     @IBOutlet weak var movieImage: UIImageView!
