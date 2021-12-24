@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SelectedMovie {
+protocol SelectedMovie: AnyObject {
     
     func onSelectedMovie (movieID: Int)
 }

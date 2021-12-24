@@ -11,7 +11,7 @@ import RxSwift
 class MoviesListByCategoryViewCell: UITableViewCell {
     
     //MARK: - Variables and init methods
-    var selectedMovieDelegate: SelectedMovie?
+    weak var selectedMovieDelegate: SelectedMovie?
     
     @IBOutlet private weak var titleSectionMovies: UILabel!
     @IBOutlet private weak var collectionMovies: UICollectionView!

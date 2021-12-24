@@ -21,31 +21,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MH7-sN-1SX">
-                    <rect key="frame" x="15" y="59" width="384" height="757"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jWz-3d-xmP">
-                    <rect key="frame" x="15" y="831" width="384" height="32"/>
-                    <segments>
-                        <segment title="Por Cateorias"/>
-                        <segment title="Populares"/>
-                    </segments>
-                    <color key="selectedSegmentTintColor" red="0.4941176471" green="0.79607844350000001" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <connections>
-                        <action selector="onSegmentPressed:" destination="-1" eventType="valueChanged" id="Opl-bA-nuC"/>
-                    </connections>
-                </segmentedControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jWz-3d-xmP" secondAttribute="trailing" constant="15" id="1ZV-YX-FMj"/>
-                <constraint firstItem="MH7-sN-1SX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="7W3-fE-xpP"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MH7-sN-1SX" secondAttribute="trailing" constant="15" id="9HI-Vl-qlD"/>
-                <constraint firstItem="jWz-3d-xmP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="GJc-9c-mHj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jWz-3d-xmP" secondAttribute="bottom" id="PBJ-JE-IE3"/>
-                <constraint firstItem="MH7-sN-1SX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="V6o-zK-MuE"/>
-                <constraint firstItem="jWz-3d-xmP" firstAttribute="top" secondItem="MH7-sN-1SX" secondAttribute="bottom" constant="15" id="pq8-Ga-UXs"/>
+                <constraint firstItem="MH7-sN-1SX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7W3-fE-xpP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MH7-sN-1SX" secondAttribute="trailing" id="9HI-Vl-qlD"/>
+                <constraint firstItem="MH7-sN-1SX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="V6o-zK-MuE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MH7-sN-1SX" secondAttribute="bottom" id="Ydt-9Q-525"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="124.55357142857142"/>
         </view>

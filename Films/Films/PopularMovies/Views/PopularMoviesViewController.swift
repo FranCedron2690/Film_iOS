@@ -37,13 +37,6 @@ class PopularMoviesViewController: UIViewController {
         viewModel?.downloadPopularListMovies()
     }
     
-    @IBAction func onSegmentPressed(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            let popularMovieList = MovieListViewController()
-            self.navigationController?.pushViewController(popularMovieList, animated: true)
-        }
-    }
-    
     private func addHeaderFilter () {
         let searchBar = UISearchBar()
         searchBar.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40)

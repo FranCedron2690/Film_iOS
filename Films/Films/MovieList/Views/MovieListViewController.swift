@@ -31,13 +31,6 @@ class MovieListViewController: UIViewController {
         viewModel?.downloadCategoriesMovies()
     }
     
-    @IBAction func onSegmentPressed(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 1 {
-//            let movieList = PopularMoviesViewController()
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
     private func reloadTableDataContent (){
         DispatchQueue.main.async {
             self.tableViewMovieCategories.reloadData()

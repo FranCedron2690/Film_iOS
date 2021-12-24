@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func onLoginClicked(_ sender: UIButton) {
-        let movieList = PopularMoviesViewController()//FilmsListViewController()
+        let movieList = MovieListContainerViewController()//PopularMoviesViewController()
         self.navigationController?.pushViewController(movieList, animated: true)
     }
 }

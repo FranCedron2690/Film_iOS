@@ -30,7 +30,7 @@
                         <action selector="onSegmentPressed:" destination="-1" eventType="valueChanged" id="Uo4-Sk-XVb"/>
                     </connections>
                 </segmentedControl>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lu2-do-K1b" userLabel="Container View">
+                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Lu2-do-K1b" userLabel="Container View">
                     <rect key="frame" x="15" y="59" width="384" height="757"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
