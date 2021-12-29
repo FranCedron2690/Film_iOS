@@ -20,13 +20,11 @@ extension UIImageView {
         AF.request(urlImage).responseImage { [weak self] response in
 
             if case .success(let image) = response.result {
-                print("image downloaded: \(image)")
                 self?.image = image
             }
             if case .failure(let errorReceived) = response.result {
                 print("Error downloading image Poster: \(errorReceived)")
-            }
-            
+            }            
         }
     }
 }

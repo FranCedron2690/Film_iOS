@@ -11,14 +11,12 @@ import RxSwift
 import RxCocoa
 
 class PopularMoviesViewController: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var viewModel:PopularMoviesViewModel?
-    
-    private var popularMovies: [MoviesData]?
-    private var filterPopularMovies: [MoviesData]?
+
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private var searchBarHeaderTable:UISearchBar?
+    private var filterPopularMovies: [MoviesData]?
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -28,13 +26,11 @@ class PopularMoviesViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "PopularMovieTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: Constants.CellNames.popularMovieCell)
         
-        addHeaderFilter ()
-        showTable(isVisible: false)
-        
-        viewModel = PopularMoviesViewModel()//provisional se crea aquí
-        viewModel?.view = self
         viewModel?.downloadDataDelegate = self
         viewModel?.downloadPopularListMovies()
+        
+        addHeaderFilter ()
+        showTable(isVisible: false)
     }
     
     private func addHeaderFilter () {
@@ -44,14 +40,10 @@ class PopularMoviesViewController: UIViewController {
         searchBar.placeholder = "Search movie..."
         
         searchBar.rx.text.orEmpty.distinctUntilChanged().subscribe { [weak self] textValue in
-            self?.filterPopularMovies = self?.popularMovies?.filter{ $0.originalTitle.lowercased().contains(textValue.lowercased()) }
+            self?.filterPopularMovies = self?.viewModel?.popularMovies?.filter{ $0.originalTitle.lowercased().contains(textValue.lowercased()) }
             self?.tableView.reloadData()
         } onError: { error in
-            
-        } onCompleted: {
-            
-        } onDisposed: {
-            
+            print ("Error filtering data movies in popular movies: \(error)")
         }.disposed(by: disposeBag)
         
         tableView.tableHeaderView = searchBar
@@ -79,7 +71,7 @@ extension PopularMoviesViewController: UITableViewDataSource {
             return filterPopularMovies?.count ?? 0
         }
         else {
-            return popularMovies?.count ?? 0
+            return viewModel?.popularMovies?.count ?? 0
         }
     }
     
@@ -92,7 +84,7 @@ extension PopularMoviesViewController: UITableViewDataSource {
             }
         }
         else {
-            if let movieData = popularMovies?[indexPath.row] {
+            if let movieData = viewModel?.popularMovies?[indexPath.row] {
                 cell.setData(movieData:movieData)
             }
         }
@@ -105,20 +97,21 @@ extension PopularMoviesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let movieDetailView = MovieDetailViewController()
-        movieDetailView.movieID = popularMovies?[indexPath.row].id
-        self.navigationController?.pushViewController(movieDetailView, animated: true)
+        if let idMovie = viewModel?.popularMovies?[indexPath.row].id {
+            viewModel?.goToDetailMovieID(idMovie)
+        }
     }
 }
 
 extension PopularMoviesViewController:DownloadDataFromView {
-    func onDownloadDataCorrect(movies: [MoviesData]) {
-        popularMovies = movies
+    func onDownloadDataCorrect() {
         showTable(isVisible: true)
         tableView.reloadData()
     }
     
     func onDownloadDataError(errorReceived: Error) {
+        let alert = NetworkManager.instance.showNetworkAlert(error: errorReceived)
+        present(alert, animated: true, completion: nil)
         print ("Error receiving data from Popular Movies: \(errorReceived)")
     }
 }

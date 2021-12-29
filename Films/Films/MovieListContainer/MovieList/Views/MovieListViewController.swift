@@ -14,8 +14,6 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var viewContentLists: UIView!
     @IBOutlet weak var tableViewMovieCategories: UITableView!
     var viewModel: MovieListViewModel?
-    
-    private var categoryMovies: [MovieCagegory]?
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -25,8 +23,6 @@ class MovieListViewController: UIViewController {
         tableViewMovieCategories.delegate = self
         tableViewMovieCategories.register(UINib(nibName: "MoviesListByCategoryViewCell", bundle: Bundle.main), forCellReuseIdentifier: Constants.CellNames.movieCategoryTableViewCell)
         
-        viewModel = MovieListViewModel()
-        viewModel?.view = self 
         viewModel?.downloadDataDelegate = self
         viewModel?.downloadCategoriesMovies()
     }
@@ -40,7 +36,7 @@ class MovieListViewController: UIViewController {
 
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryMovies?.count ?? 0
+        return viewModel?.categoryMovies?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -50,8 +46,15 @@ extension MovieListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellNames.movieCategoryTableViewCell, for: indexPath) as! MoviesListByCategoryViewCell
         
-        cell.setCategorySectionData(category: (categoryMovies?[indexPath.row])!)
-        cell.selectedMovieDelegate = self
+        if let lastCategoryOffsetData = cell.getCategoryOffset() {
+            viewModel?.saveOffsetCategory(nameCategory: lastCategoryOffsetData.nameCategory, offset: lastCategoryOffsetData.offset)
+        }
+        
+        if let category = viewModel?.categoryMovies?[indexPath.row] {
+            cell.setCategorySectionData(category)
+        }
+        
+        cell.selectedMoviePosterDelegate = self
         
         return cell
     }
@@ -61,21 +64,20 @@ extension MovieListViewController: UITableViewDelegate {
     
 }
 
-extension MovieListViewController: SelectedMovie {
-    func onSelectedMovie(movieID: Int) {
-        let movieDetailView = MovieDetailViewController()
-        movieDetailView.movieID = movieID
-        self.navigationController?.pushViewController(movieDetailView, animated: true)
+extension MovieListViewController: SelectedMoviePoster {
+    func onSelectedMoviePoster(movieID: Int) {
+        viewModel?.goToDetailMovieID(movieID)
     }
 }
 
 extension MovieListViewController: DownloadDataFromView {
-    func onDownloadDataCorrect(categories: [MovieCagegory]) {
-        categoryMovies = categories
+    func onDownloadDataCorrect() {
         reloadTableDataContent()
     }
     
     func onDownloadDataError(errorReceived: Error) {
+        let alert = NetworkManager.instance.showNetworkAlert(error: errorReceived)
+        present(alert, animated: true, completion: nil)
         print ("Error receiving categories movie data: \(errorReceived)")
     }
 }

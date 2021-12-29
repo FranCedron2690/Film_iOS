@@ -6,9 +6,7 @@
 //
 
 import Foundation
-import RxSwift
 
 class BaseViewModel {
-    let disposeBag = DisposeBag()
     weak var downloadDataDelegate:DownloadDataFromView?
 }

@@ -9,18 +9,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var userLabel: UILabel!
-    @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var userTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var retryButton: UIButton!
-    @IBOutlet weak var errorLoginLabel: UILabel!
+    @IBOutlet private weak var userLabel: UILabel!
+    @IBOutlet private weak var passwordLabel: UILabel!
+    @IBOutlet private weak var userTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var retryButton: UIButton!
+    @IBOutlet private weak var errorLoginLabel: UILabel!
+    var viewModel: HomeViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         translateTexts ()
         showButtonLogin ()
     }
@@ -50,8 +49,7 @@ class HomeViewController: UIViewController {
         errorLoginLabel.isHidden = false
     }
     
-    @IBAction func onLoginClicked(_ sender: UIButton) {
-        let movieList = MovieListContainerViewController()//PopularMoviesViewController()
-        self.navigationController?.pushViewController(movieList, animated: true)
+    @IBAction private func onLoginClicked(_ sender: UIButton) {
+        viewModel?.goToMovies()
     }
 }

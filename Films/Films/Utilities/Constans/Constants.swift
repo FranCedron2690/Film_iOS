@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     
@@ -15,5 +16,4 @@ struct Constants {
         static let movieCell = "movieCell"
         static let popularMovieCell = "popularMovieCell"
     }
-    
 }

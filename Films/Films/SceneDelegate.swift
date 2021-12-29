@@ -11,20 +11,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    private var applicationCoordinator: ApplicationCoordinator?  // 1
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: UIScreen.main.bounds)//creación de la ventana usada, con las proporciones de pantalla del dispositivo
+//        window = UIWindow(frame: UIScreen.main.bounds)//creación de la ventana usada, con las proporciones de pantalla del dispositivo
         
-        let homeviewController = HomeViewController()
-        //Creación del navController
-        let navController = UINavigationController(rootViewController: homeviewController)
-     
-        //Set de la pantalla actual
-        window?.rootViewController = navController
-        window?.makeKeyAndVisible()
-        window?.windowScene = windowScene
+        applicationCoordinator = ApplicationCoordinator(windowScene: windowScene)
+        applicationCoordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

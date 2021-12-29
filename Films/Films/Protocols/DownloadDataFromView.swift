@@ -9,14 +9,12 @@ import Foundation
 import Moya
 
 protocol DownloadDataFromView: AnyObject {
-    func onDownloadDataCorrect (movies: [MoviesData])
-    func onDownloadDataCorrect (categories: [MovieCagegory])
+    func onDownloadDataCorrect ()
     func onDownloadDataError (errorReceived: Error)
 }
 
 //MARK: - OPTIONAL METHODS
 extension DownloadDataFromView {
-    func onDownloadDataCorrect (movies: [MoviesData]) {}
-    func onDownloadDataCorrect (categories: [MovieCagegory]) {}
+    func onDownloadDataCorrect () {}
     func onDownloadDataError (errorReceived: Error) {}
 }

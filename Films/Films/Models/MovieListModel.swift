@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - MovieListModel
 struct MovieListModel: Codable {
-    let results: [MoviesData]
+    let results: [MoviesData]    
 }
 
 // MARK: - MoviesData
