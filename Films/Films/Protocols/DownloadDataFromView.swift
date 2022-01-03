@@ -10,11 +10,11 @@ import Moya
 
 protocol DownloadDataFromView: AnyObject {
     func onDownloadDataCorrect ()
-    func onDownloadDataError (errorReceived: Error)
+    func onDownloadDataError (errorReceived: NetworkError)
 }
 
-//MARK: - OPTIONAL METHODS
+// MARK: - OPTIONAL METHODS
 extension DownloadDataFromView {
     func onDownloadDataCorrect () {}
-    func onDownloadDataError (errorReceived: Error) {}
+    func onDownloadDataError (errorReceived: NetworkError) {}
 }

@@ -11,7 +11,7 @@ import UIKit
 // MARK: - MovieCagegoriesModel
 struct MovieCagegoriesModel: Codable {
     let listAllCagegories: [MovieCagegory]
-        
+
     enum CodingKeys: String, CodingKey {
         case listAllCagegories = "genres"
     }
@@ -19,13 +19,12 @@ struct MovieCagegoriesModel: Codable {
 
 // MARK: - MovieCagegory
 struct MovieCagegory: Codable {
-    var scrollCategoryOffset = CGPoint.zero//var interna
-    let id: Int
-    let name: String
-    
+    var scrollCategoryOffset = CGPoint.zero
+    let idCategory: Int
+    let nameCategory: String
+
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
+        case idCategory = "id"
+        case nameCategory = "name"
     }
 }
-

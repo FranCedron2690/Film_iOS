@@ -8,12 +8,11 @@
 import Foundation
 
 class MoviesListByCategoryViewModel: BaseViewModel {
-    
     var categoryMovieSection: MovieCagegory?
     var dataMoviesBySection: MovieListModel?
-    
+
     func donwloadSectionMoviesData (idCategory: Int) {
-        NetworkManager.instance.makeRequest(endpointToExecute: .getMoviesByCategory(idCategory: categoryMovieSection!.id)) { [weak self] (dataDecoded:MovieListModel) -> Void in
+        NetworkManager.shared.execute(toExecute: .getMoviesByCategory(idCategory: categoryMovieSection!.idCategory)) { [weak self] (dataDecoded: MovieListModel) -> Void in
             self?.dataMoviesBySection = dataDecoded
             self?.downloadDataDelegate?.onDownloadDataCorrect()
         } onError: {  [weak self] errorReceived in

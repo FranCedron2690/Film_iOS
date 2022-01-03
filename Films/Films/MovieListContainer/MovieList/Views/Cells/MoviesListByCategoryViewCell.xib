@@ -36,8 +36,16 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error downloading movie data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIB-Y0-Uka">
+                        <rect key="frame" x="46.5" y="101" width="227" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" systemColor="systemPinkColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="zIB-Y0-Uka" firstAttribute="centerX" secondItem="Sz8-bJ-yb1" secondAttribute="centerX" id="9yY-ug-kme"/>
+                    <constraint firstItem="zIB-Y0-Uka" firstAttribute="centerY" secondItem="Sz8-bJ-yb1" secondAttribute="centerY" id="BHt-EK-6YN"/>
                     <constraint firstItem="Sz8-bJ-yb1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="DsQ-8M-kaQ"/>
                     <constraint firstItem="qcw-if-dZn" firstAttribute="centerX" secondItem="Sz8-bJ-yb1" secondAttribute="centerX" id="DtB-XF-faa"/>
                     <constraint firstItem="qcw-if-dZn" firstAttribute="centerY" secondItem="Sz8-bJ-yb1" secondAttribute="centerY" id="OBo-zQ-8cG"/>
@@ -52,6 +60,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="qcw-if-dZn" id="Asv-yl-eLx"/>
                 <outlet property="collectionMovies" destination="Sz8-bJ-yb1" id="cas-e5-3Y4"/>
+                <outlet property="errorLabel" destination="zIB-Y0-Uka" id="Cnk-hm-XHQ"/>
                 <outlet property="titleSectionMovies" destination="m4E-Iq-T5l" id="Ue6-M7-qQx"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="171.76339285714286"/>
@@ -60,6 +69,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

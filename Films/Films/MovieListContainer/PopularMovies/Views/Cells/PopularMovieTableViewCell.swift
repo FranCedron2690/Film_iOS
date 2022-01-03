@@ -23,8 +23,8 @@ class PopularMovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func setData (movieData: MoviesData){
+
+    func setData (movieData: MoviesData) {
         posterImage.downloadImageFrom(urlString: movieData.posterPath, defaultImage: "default-movie")
         titleLabel.text = movieData.originalTitle
         dateReleasedLabel.text = movieData.releaseDate

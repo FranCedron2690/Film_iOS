@@ -21,6 +21,7 @@
 		6172905F2775D931009ADF3D /* MoviesListByCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172905E2775D931009ADF3D /* MoviesListByCategoryViewModel.swift */; };
 		6172906E2775E124009ADF3D /* MoviesListByCategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172906C2775E124009ADF3D /* MoviesListByCategoryViewCell.swift */; };
 		6172906F2775E124009ADF3D /* MoviesListByCategoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6172906D2775E124009ADF3D /* MoviesListByCategoryViewCell.xib */; };
+		617A89942782F9AC004A7D5D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617A89932782F9AC004A7D5D /* BaseViewController.swift */; };
 		617D923E277325CD00F2735B /* MovieCategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617D923D277325CD00F2735B /* MovieCategoriesModel.swift */; };
 		617D924127734C0500F2735B /* SelectedMoviePoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617D924027734C0500F2735B /* SelectedMoviePoster.swift */; };
 		617D92452773509000F2735B /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617D92432773509000F2735B /* MovieDetailViewController.swift */; };
@@ -33,7 +34,6 @@
 		6182547D2774B15200C17C9A /* MovieListContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6182547B2774B15200C17C9A /* MovieListContainerViewController.xib */; };
 		6182547F2774C85100C17C9A /* PopularMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6182547E2774C85100C17C9A /* PopularMoviesViewModel.swift */; };
 		619E0B12277C589B0028F562 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B11277C589B0028F562 /* NetworkError.swift */; };
-		619E0B14277C63DA0028F562 /* navControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B13277C63DA0028F562 /* navControllerExtension.swift */; };
 		619E0B16277C746E0028F562 /* AlertToCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B15277C746E0028F562 /* AlertToCoordinator.swift */; };
 		61AB621927735B55004B7817 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB621827735B55004B7817 /* MovieModel.swift */; };
 		61AB621B277368F9004B7817 /* imageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB621A277368F9004B7817 /* imageExtension.swift */; };
@@ -74,6 +74,7 @@
 		6172905E2775D931009ADF3D /* MoviesListByCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListByCategoryViewModel.swift; sourceTree = "<group>"; };
 		6172906C2775E124009ADF3D /* MoviesListByCategoryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesListByCategoryViewCell.swift; sourceTree = "<group>"; };
 		6172906D2775E124009ADF3D /* MoviesListByCategoryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesListByCategoryViewCell.xib; sourceTree = "<group>"; };
+		617A89932782F9AC004A7D5D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		617D923D277325CD00F2735B /* MovieCategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoriesModel.swift; sourceTree = "<group>"; };
 		617D924027734C0500F2735B /* SelectedMoviePoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMoviePoster.swift; sourceTree = "<group>"; };
 		617D92432773509000F2735B /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		6182547B2774B15200C17C9A /* MovieListContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListContainerViewController.xib; sourceTree = "<group>"; };
 		6182547E2774C85100C17C9A /* PopularMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesViewModel.swift; sourceTree = "<group>"; };
 		619E0B11277C589B0028F562 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		619E0B13277C63DA0028F562 /* navControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navControllerExtension.swift; sourceTree = "<group>"; };
 		619E0B15277C746E0028F562 /* AlertToCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertToCoordinator.swift; sourceTree = "<group>"; };
 		61AB621827735B55004B7817 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		61AB621A277368F9004B7817 /* imageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageExtension.swift; sourceTree = "<group>"; };
@@ -166,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				6172905C2775CD64009ADF3D /* BaseViewModel.swift */,
+				617A89932782F9AC004A7D5D /* BaseViewController.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -324,7 +325,6 @@
 			isa = PBXGroup;
 			children = (
 				61AB621A277368F9004B7817 /* imageExtension.swift */,
-				619E0B13277C63DA0028F562 /* navControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -427,6 +427,7 @@
 				61C05A1B2771CF460013CAC8 /* Frameworks */,
 				61C05A1C2771CF460013CAC8 /* Resources */,
 				8A2FBB6E3184617ABE08C7AA /* [CP] Embed Pods Frameworks */,
+				61D9360F2783248D00F4AC08 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -515,6 +516,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		61D9360F2783248D00F4AC08 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n  ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		8A2FBB6E3184617ABE08C7AA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,6 +569,7 @@
 				6126F5942779BB98001AB810 /* ApplicationCoordinator.swift in Sources */,
 				61AB621D27736DE3004B7817 /* NetworkManager.swift in Sources */,
 				6172906E2775E124009ADF3D /* MoviesListByCategoryViewCell.swift in Sources */,
+				617A89942782F9AC004A7D5D /* BaseViewController.swift in Sources */,
 				6126F59D2779CD0B001AB810 /* MovieDetailCoordinator.swift in Sources */,
 				617D924127734C0500F2735B /* SelectedMoviePoster.swift in Sources */,
 				6126F5922779BA52001AB810 /* Coordinator.swift in Sources */,
@@ -574,7 +594,6 @@
 				61C05A382771D2E70013CAC8 /* HomeViewController.swift in Sources */,
 				6182547F2774C85100C17C9A /* PopularMoviesViewModel.swift in Sources */,
 				61C05A4E2771F8100013CAC8 /* Constants.swift in Sources */,
-				619E0B14277C63DA0028F562 /* navControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

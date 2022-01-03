@@ -8,6 +8,6 @@
 import Foundation
 
 protocol SelectedMoviePoster: AnyObject {
-    
+
     func onSelectedMoviePoster (movieID: Int)
 }

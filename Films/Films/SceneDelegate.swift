@@ -8,16 +8,15 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
     private var applicationCoordinator: ApplicationCoordinator?  // 1
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
+
         guard let windowScene = (scene as? UIWindowScene) else { return }
 //        window = UIWindow(frame: UIScreen.main.bounds)//creación de la ventana usada, con las proporciones de pantalla del dispositivo
-        
+
         applicationCoordinator = ApplicationCoordinator(windowScene: windowScene)
         applicationCoordinator?.start()
     }
@@ -50,6 +49,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
 }
-

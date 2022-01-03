@@ -14,6 +14,6 @@ protocol AlertToCoordinator: AnyObject {
 
 extension AlertToCoordinator {
     func showAlert (_ alert: UIAlertController) {
-        
+
     }
 }

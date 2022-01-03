@@ -7,7 +7,18 @@
 
 import Foundation
 
-enum NetworkError: Error {
-    case NetworkUnreachable (description:String)
-    case DecodingError (description:String)
+struct NetworkError: Error {
+
+    let description: String
+
+    let type: ErrorType
+
+    enum ErrorType {
+        case networkErrorUnreachable
+        case networkErrorMapping
+        case networkErrorStatusCode
+        case networkErrorParameterEncoder
+        case networkErrorUnderlying
+        case networkErrorDecodingJson
+    }
 }

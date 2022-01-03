@@ -9,22 +9,22 @@ import Foundation
 import Moya
 
 enum MoviesService {
-    
+
     static let baseAdress = "https://api.themoviedb.org/3"
     static let baseAddresImages = "https://image.tmdb.org/t/p/original"
     static let APIKey = "95a5cde9017f91bec02d21f143a78711"
-    
-    case getAllCategoriesMovies
+
+    case getAllCategories
     case getPopularMovies
     case getMoviesByCategory (idCategory: Int)
     case getMovieByID (idMovie: Int)
     case getMovieImagePoster
 }
 
-extension MoviesService : TargetType {
+extension MoviesService: TargetType {
     var baseURL: URL {
         switch self {
-        case .getAllCategoriesMovies,
+        case .getAllCategories,
             .getPopularMovies,
             .getMoviesByCategory,
             .getMovieByID:
@@ -33,25 +33,25 @@ extension MoviesService : TargetType {
             return URL(string: MoviesService.baseAddresImages)!
         }
     }
-    
+
     var path: String {
         switch self {
-        case .getAllCategoriesMovies:
+        case .getAllCategories:
             return "/genre/movie/list"
         case .getPopularMovies:
             return "/movie/popular"
         case .getMoviesByCategory:
             return "discover/movie"
-        case .getMovieByID (let movieID):
+        case .getMovieByID(let movieID):
             return "/movie/\(movieID)"
         case .getMovieImagePoster:
             return ""
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
-        case .getAllCategoriesMovies,
+        case .getAllCategories,
             .getPopularMovies,
             .getMoviesByCategory,
             .getMovieByID,
@@ -59,28 +59,28 @@ extension MoviesService : TargetType {
             return Moya.Method.get
         }
     }
-    
+
     var task: Task {
         var parametersURL = [String: Any]()
         parametersURL["api_key"] = MoviesService.APIKey
-        
+
         switch self {
-        case .getAllCategoriesMovies,
+        case .getAllCategories,
                 .getPopularMovies:
-            print ("")
-        case .getMoviesByCategory (let idCategory):
+            print("")
+        case .getMoviesByCategory(let idCategory):
             parametersURL["with_genres"] = idCategory
         case .getMovieByID:
-            print ("")
+            print("")
         case .getMovieImagePoster:
-            print ("")
+            print("")
         }
-        
+
         return .requestParameters(parameters: parametersURL, encoding: URLEncoding.default)
     }
-    
-    var headers: [String : String]? {
-        //si no ponemos este header por defecto, devolverá un error
-        return ["application/json" : "Content-Type"]
+
+    var headers: [String: String]? {
+        // si no ponemos este header por defecto, devolverá un error
+        return ["application/json": "Content-Type"]
     }
 }

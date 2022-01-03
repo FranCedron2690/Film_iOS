@@ -12,72 +12,41 @@ import Alamofire
 import AlamofireImage
 
 class NetworkManager {
-    
     private init() {}
-    
-    static let instance = NetworkManager()
-    
+    static let shared = NetworkManager()
     private let provider = MoyaProvider<MoviesService>()
-    
-    func makeRequest<T:Decodable> (endpointToExecute: MoviesService, onOk: @escaping(T) -> Void, onError: @escaping(Error) -> Void){
-        
-        self.provider.request(endpointToExecute) { result in
-            switch result {
-            case let .success(response):
-                do {
-                    let decodedData = try JSONDecoder().decode(T.self, from: response.data)
-                    onOk(decodedData)
+
+    func execute<T: Decodable>(toExecute: MoviesService, onOk: @escaping(T) -> Void, onError: @escaping(NetworkError) -> Void) {
+            self.provider.request(toExecute) { [weak self] result in
+                switch result {
+                case let .success(response):
+                    do {
+                        let decodedData = try JSONDecoder().decode(T.self, from: response.data)
+                        onOk(decodedData)
+                    } catch {
+                        let networkError = self?.getNetworkError(fromError: error)
+                        onError(networkError!)
+                    }
+                case let .failure(errorReceived):
+                    let networkError = self?.getNetworkError(fromError: errorReceived)
+                    onError(networkError!)
                 }
-                catch{
-                    onError(error)
-                }
-            case let .failure(errorReceived):
-                onError(errorReceived)
             }
-        }
     }
-    
-    func showNetworkAlert (error: Error) -> UIAlertController {
-        let errorInfo = getErrorMessage(error: error)
-        let alert = UIAlertController(title: errorInfo.title, message: errorInfo.message, preferredStyle: .alert)
-        
-        let actionAlert = UIAlertAction(title: "Ok", style: .default) { action in
-            
-        }
-        
-        alert.addAction(actionAlert)
-        
-        return alert
-    }
-    
-    private func getErrorMessage (error: Error) -> (title:String, message:String) {
-        var valueReturn = ("valor", "message")
-        if let errorMoya = error as? MoyaError {
+    private func getNetworkError(fromError: Error) -> NetworkError {
+        if let errorMoya = fromError as? MoyaError {
             switch errorMoya {
-            case .imageMapping:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
-            case .jsonMapping:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
-            case .stringMapping:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
-            case .objectMapping:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
-            case .encodableMapping:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
+            case .imageMapping, .jsonMapping, .stringMapping, .objectMapping, .encodableMapping, .requestMapping:
+                return NetworkError(description: errorMoya.localizedDescription, type: .networkErrorMapping)
             case .statusCode:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
+                return NetworkError(description: errorMoya.localizedDescription, type: .networkErrorStatusCode)
             case .underlying:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
-            case .requestMapping:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
+                return NetworkError(description: errorMoya.localizedDescription, type: .networkErrorUnderlying)
             case .parameterEncoding:
-                valueReturn = ("Error Image Mapping",errorMoya.localizedDescription)
+                return NetworkError(description: errorMoya.localizedDescription, type: .networkErrorParameterEncoder)
             }
+        } else { // Otros errores que no sea de Moya, que en este caso solo puede ser al decodificar
+            return NetworkError(description: fromError.localizedDescription, type: .networkErrorDecodingJson)
         }
-        else {
-            valueReturn = ("Other error", error.localizedDescription)
-        }
-        
-        return valueReturn
     }
 }

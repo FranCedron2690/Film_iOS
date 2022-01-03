@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SelectedMovie: AnyObject {
-    func OnSelectedMovie (idMovie: Int)
+    func onSelectedMovie (idMovie: Int)
 }

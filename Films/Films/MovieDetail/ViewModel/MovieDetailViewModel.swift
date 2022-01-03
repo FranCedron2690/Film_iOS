@@ -9,11 +9,11 @@ import Foundation
 import RxSwift
 
 class MovieDetailViewModel: BaseViewModel {
-    
-    var movieData:MovieModel?
-    
+
+    var movieData: MovieModel?
+
     func downloadMovieDetailData (movieID: Int) {
-        NetworkManager.instance.makeRequest(endpointToExecute: .getMovieByID(idMovie: movieID)) { [weak self] (dataDecoded:MovieModel) -> Void in
+        NetworkManager.shared.execute(toExecute: .getMovieByID(idMovie: movieID)) { [weak self] (dataDecoded: MovieModel) -> Void in
             self?.movieData = dataDecoded
             self?.downloadDataDelegate?.onDownloadDataCorrect()
         } onError: { [weak self] error in

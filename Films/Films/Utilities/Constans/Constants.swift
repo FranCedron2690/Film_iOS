@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 struct Constants {
-    
+
     struct CellNames {
-        
+
         static let movieCategoryTableViewCell = "MoviesByCategoryCell"
         static let movieCell = "movieCell"
         static let popularMovieCell = "popularMovieCell"

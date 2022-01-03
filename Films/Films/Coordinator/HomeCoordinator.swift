@@ -9,15 +9,11 @@ import UIKit
 
 class HomeCoordinator: Coordinator {
     private let presenter: UINavigationController
-    
     private let movieListContainerCoordinator: MovieListContainerCoordinator
-    
     init(presenter: UINavigationController) {
         self.presenter = presenter
-        
         movieListContainerCoordinator = MovieListContainerCoordinator(presenter: presenter)
     }
-    
     func start() {
         let view = HomeViewController(nibName: "HomeViewController", bundle: Bundle.main)
         view.viewModel = HomeViewModel(homeDelegate: self)

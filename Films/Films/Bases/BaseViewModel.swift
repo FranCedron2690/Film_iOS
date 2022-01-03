@@ -8,5 +8,5 @@
 import Foundation
 
 class BaseViewModel {
-    weak var downloadDataDelegate:DownloadDataFromView?
+    weak var downloadDataDelegate: DownloadDataFromView?
 }
