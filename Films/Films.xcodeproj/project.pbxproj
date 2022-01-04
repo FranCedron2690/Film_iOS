@@ -53,6 +53,7 @@
 		61C05A4B2771F73E0013CAC8 /* MoviePosterImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C05A492771F73E0013CAC8 /* MoviePosterImageViewCell.swift */; };
 		61C05A4C2771F73E0013CAC8 /* MoviePosterImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C05A4A2771F73E0013CAC8 /* MoviePosterImageViewCell.xib */; };
 		61C05A4E2771F8100013CAC8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C05A4D2771F8100013CAC8 /* Constants.swift */; };
+		61CBCF76278433AD003F9569 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61CBCF75278433AD003F9569 /* GoogleService-Info.plist */; };
 		61D8B9682772124200F903AE /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8B9672772124200F903AE /* MovieListModel.swift */; };
 		63BD6A48B5EC79E2F5C786B9 /* Pods_Films.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A57968D96E775D4E36D0957 /* Pods_Films.framework */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		61C05A492771F73E0013CAC8 /* MoviePosterImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterImageViewCell.swift; sourceTree = "<group>"; };
 		61C05A4A2771F73E0013CAC8 /* MoviePosterImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviePosterImageViewCell.xib; sourceTree = "<group>"; };
 		61C05A4D2771F8100013CAC8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		61CBCF75278433AD003F9569 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61D8B9672772124200F903AE /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
 		93720458EAEAC6798E44587B /* Pods-Films.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Films.debug.xcconfig"; path = "Target Support Files/Pods-Films/Pods-Films.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -364,6 +366,7 @@
 				61C05A2A2771CF460013CAC8 /* Assets.xcassets */,
 				61C05A2C2771CF460013CAC8 /* LaunchScreen.storyboard */,
 				61C05A2F2771CF460013CAC8 /* Info.plist */,
+				61CBCF75278433AD003F9569 /* GoogleService-Info.plist */,
 				61C05A412771E7850013CAC8 /* Localization.strings */,
 			);
 			path = Films;
@@ -427,7 +430,7 @@
 				61C05A1B2771CF460013CAC8 /* Frameworks */,
 				61C05A1C2771CF460013CAC8 /* Resources */,
 				8A2FBB6E3184617ABE08C7AA /* [CP] Embed Pods Frameworks */,
-				61D9360F2783248D00F4AC08 /* Run Script */,
+				61D9360F2783248D00F4AC08 /* SwiftLint Script */,
 			);
 			buildRules = (
 			);
@@ -482,6 +485,7 @@
 				61C05A3F2771E7850013CAC8 /* Localization.strings in Resources */,
 				61C05A2B2771CF460013CAC8 /* Assets.xcassets in Resources */,
 				61C05A392771D2E70013CAC8 /* HomeViewController.xib in Resources */,
+				61CBCF76278433AD003F9569 /* GoogleService-Info.plist in Resources */,
 				6182547D2774B15200C17C9A /* MovieListContainerViewController.xib in Resources */,
 				618254772774830000C17C9A /* PopularMovieTableViewCell.xib in Resources */,
 				6182547227747A8F00C17C9A /* PopularMoviesViewController.xib in Resources */,
@@ -516,7 +520,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		61D9360F2783248D00F4AC08 /* Run Script */ = {
+		61D9360F2783248D00F4AC08 /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -525,7 +529,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Run Script";
+			name = "SwiftLint Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -746,6 +750,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = WV3N6797AT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Films/Info.plist;
