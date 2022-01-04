@@ -24,7 +24,7 @@ struct MovieCagegory: Codable {
     let nameCategory: String
 
     enum CodingKeys: String, CodingKey {
-        case idCategory = "id"
+        case idCategory = "idAAAA"
         case nameCategory = "name"
     }
 }

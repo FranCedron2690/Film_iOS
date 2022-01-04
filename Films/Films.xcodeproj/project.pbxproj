@@ -53,8 +53,8 @@
 		61C05A4B2771F73E0013CAC8 /* MoviePosterImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C05A492771F73E0013CAC8 /* MoviePosterImageViewCell.swift */; };
 		61C05A4C2771F73E0013CAC8 /* MoviePosterImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C05A4A2771F73E0013CAC8 /* MoviePosterImageViewCell.xib */; };
 		61C05A4E2771F8100013CAC8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C05A4D2771F8100013CAC8 /* Constants.swift */; };
-		61CBCF76278433AD003F9569 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61CBCF75278433AD003F9569 /* GoogleService-Info.plist */; };
 		61D8B9682772124200F903AE /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D8B9672772124200F903AE /* MovieListModel.swift */; };
+		61E763D52784993000BC54E7 /* SentryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E763D42784993000BC54E7 /* SentryManager.swift */; };
 		63BD6A48B5EC79E2F5C786B9 /* Pods_Films.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A57968D96E775D4E36D0957 /* Pods_Films.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,8 +110,8 @@
 		61C05A492771F73E0013CAC8 /* MoviePosterImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterImageViewCell.swift; sourceTree = "<group>"; };
 		61C05A4A2771F73E0013CAC8 /* MoviePosterImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviePosterImageViewCell.xib; sourceTree = "<group>"; };
 		61C05A4D2771F8100013CAC8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		61CBCF75278433AD003F9569 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61D8B9672772124200F903AE /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
+		61E763D42784993000BC54E7 /* SentryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentryManager.swift; sourceTree = "<group>"; };
 		93720458EAEAC6798E44587B /* Pods-Films.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Films.debug.xcconfig"; path = "Target Support Files/Pods-Films/Pods-Films.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,6 +311,7 @@
 			children = (
 				61AB622127737B98004B7817 /* Extensions */,
 				61AB622027737B91004B7817 /* Constans */,
+				61E763D42784993000BC54E7 /* SentryManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -366,7 +367,6 @@
 				61C05A2A2771CF460013CAC8 /* Assets.xcassets */,
 				61C05A2C2771CF460013CAC8 /* LaunchScreen.storyboard */,
 				61C05A2F2771CF460013CAC8 /* Info.plist */,
-				61CBCF75278433AD003F9569 /* GoogleService-Info.plist */,
 				61C05A412771E7850013CAC8 /* Localization.strings */,
 			);
 			path = Films;
@@ -431,6 +431,7 @@
 				61C05A1C2771CF460013CAC8 /* Resources */,
 				8A2FBB6E3184617ABE08C7AA /* [CP] Embed Pods Frameworks */,
 				61D9360F2783248D00F4AC08 /* SwiftLint Script */,
+				61E763D32784883C00BC54E7 /* Sentry */,
 			);
 			buildRules = (
 			);
@@ -485,7 +486,6 @@
 				61C05A3F2771E7850013CAC8 /* Localization.strings in Resources */,
 				61C05A2B2771CF460013CAC8 /* Assets.xcassets in Resources */,
 				61C05A392771D2E70013CAC8 /* HomeViewController.xib in Resources */,
-				61CBCF76278433AD003F9569 /* GoogleService-Info.plist in Resources */,
 				6182547D2774B15200C17C9A /* MovieListContainerViewController.xib in Resources */,
 				618254772774830000C17C9A /* PopularMovieTableViewCell.xib in Resources */,
 				6182547227747A8F00C17C9A /* PopularMoviesViewController.xib in Resources */,
@@ -538,6 +538,25 @@
 			shellPath = /bin/sh;
 			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n  ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		61E763D32784883C00BC54E7 /* Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			name = Sentry;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which sentry-cli >/dev/null; then\nexport SENTRY_URL=https://mysentry.invalid/\nexport SENTRY_ORG=hiberus-d3\nexport SENTRY_PROJECT=hiberus-d3\nexport SENTRY_AUTH_TOKEN=1f779b272fd24fe4a644b1abbf39d62cf1ba9f2da30d444087321adefb8f227e\nERROR=$(sentry-cli upload-dif \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
+		};
 		8A2FBB6E3184617ABE08C7AA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -573,6 +592,7 @@
 				6126F5942779BB98001AB810 /* ApplicationCoordinator.swift in Sources */,
 				61AB621D27736DE3004B7817 /* NetworkManager.swift in Sources */,
 				6172906E2775E124009ADF3D /* MoviesListByCategoryViewCell.swift in Sources */,
+				61E763D52784993000BC54E7 /* SentryManager.swift in Sources */,
 				617A89942782F9AC004A7D5D /* BaseViewController.swift in Sources */,
 				6126F59D2779CD0B001AB810 /* MovieDetailCoordinator.swift in Sources */,
 				617D924127734C0500F2735B /* SelectedMoviePoster.swift in Sources */,

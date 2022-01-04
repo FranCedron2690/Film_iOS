@@ -6,16 +6,21 @@
 //
 
 import UIKit
-import Firebase
+import Sentry
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        // Use the Firebase library to configure APIs.
-        FirebaseApp.configure()
-        
+
+        SentrySDK.start { options in
+                options.dsn = "https://36eb3c8ee86946719298bdc8085ec815@o1107273.ingest.sentry.io/6134298"
+                options.debug = true // Enabled debug when first installing is always helpful
+
+                // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+                // We recommend adjusting this value in production.
+                options.tracesSampleRate = 1.0
+            }
+
         return true
     }
 

@@ -15,6 +15,7 @@ class NetworkManager {
     private init() {}
     static let shared = NetworkManager()
     private let provider = MoyaProvider<MoviesService>()
+    
 
     func execute<T: Decodable>(toExecute: MoviesService, onOk: @escaping(T) -> Void, onError: @escaping(NetworkError) -> Void) {
             self.provider.request(toExecute) { [weak self] result in
@@ -25,14 +26,23 @@ class NetworkManager {
                         onOk(decodedData)
                     } catch {
                         let networkError = self?.getNetworkError(fromError: error)
+                        let urlString = (response.request?.url?.absoluteString)!
+                        let modelName = String(describing: T.self)
+                        let errorMessage = String(describing: error)
+                        SentryManager.shared.prepareFromJsonDecoding(urlExecuted: urlString, modelName: modelName, errorMessage: errorMessage)
                         onError(networkError!)
                     }
                 case let .failure(errorReceived):
                     let networkError = self?.getNetworkError(fromError: errorReceived)
+                    let urlString = (errorReceived.response?.request?.url?.absoluteString)!
+                    let codeStatus = (errorReceived.response?.statusCode)!
+                    let errorMessage = (networkError?.localizedDescription)!
+                    SentryManager.shared.prepareFromRequest(urlExecuted: urlString, codeStatus: codeStatus, errorMessage: errorMessage)
                     onError(networkError!)
                 }
             }
     }
+
     private func getNetworkError(fromError: Error) -> NetworkError {
         if let errorMoya = fromError as? MoyaError {
             switch errorMoya {
