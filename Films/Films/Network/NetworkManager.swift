@@ -10,6 +10,7 @@ import Moya
 import RxSwift
 import Alamofire
 import AlamofireImage
+import FirebaseCrashlytics
 
 class NetworkManager {
     private init() {}
@@ -25,14 +26,21 @@ class NetworkManager {
                         onOk(decodedData)
                     } catch {
                         let networkError = self?.getNetworkError(fromError: error)
+                        let stringURL = (response.request?.url?.absoluteString)!
+                        let nameModelDecoding = String(describing: T.self)
+                        CrashalyticsManager.shared.prepareFromJsonDecoding(urlExecuted: stringURL, modelName: nameModelDecoding, errorMessage: networkError!.description)
                         onError(networkError!)
                     }
                 case let .failure(errorReceived):
                     let networkError = self?.getNetworkError(fromError: errorReceived)
+                    let stringURL = (errorReceived.response?.request?.url?.absoluteString)!
+                    let codeStatus = (errorReceived.response?.statusCode)!
+                    CrashalyticsManager.shared.prepareFromRequest(urlExecuted: stringURL, codeStatus: codeStatus, errorMessage: networkError!.description)
                     onError(networkError!)
                 }
             }
     }
+
     private func getNetworkError(fromError: Error) -> NetworkError {
         if let errorMoya = fromError as? MoyaError {
             switch errorMoya {
@@ -46,7 +54,7 @@ class NetworkManager {
                 return NetworkError(description: errorMoya.localizedDescription, type: .networkErrorParameterEncoder)
             }
         } else { // Otros errores que no sea de Moya, que en este caso solo puede ser al decodificar
-            return NetworkError(description: fromError.localizedDescription, type: .networkErrorDecodingJson)
+            return NetworkError(description: String(describing: fromError), type: .networkErrorDecodingJson)
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class HomeViewController: UIViewController {
     @IBOutlet private weak var userLabel: UILabel!
