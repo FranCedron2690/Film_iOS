@@ -4,10 +4,10 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Sacar fotos </string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>You can select photos to attach to reports.</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>Please allow access to save photo in your photo library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You can select photos to attach to reports.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please allow access to save photo in your photo library</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -25,5 +25,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 </dict>
 </plist>

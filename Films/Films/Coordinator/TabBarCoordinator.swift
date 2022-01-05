@@ -1,14 +1,15 @@
 //
-//  MovieListContainerCoordinator.swift
+//  TabBarCoordinator.swift
 //  Films
 //
-//  Created by fjcedron@hiberus.com on 27/12/21.
+//  Created by fjcedron@hiberus.com on 5/1/22.
 //
 
 import Foundation
 import UIKit
 
-class MovieListContainerCoordinator: Coordinator {
+class TabBarCoordinator: Coordinator {
+
     private let presenter: UINavigationController
 
     init(presenter: UINavigationController) {
@@ -16,13 +17,13 @@ class MovieListContainerCoordinator: Coordinator {
     }
 
     func start() {
-        let movieListContainer = MovieListContainerViewController(nibName: "MovieListContainerViewController", bundle: Bundle.main)
-        movieListContainer.viewModel = MovieListContainterViewModel(view: movieListContainer, selectedMovieDelegate: self)
+        let movieListContainer = MovieTabBarController()
+        movieListContainer.selectedMovieDelegate = self
         presenter.pushViewController(movieListContainer, animated: true)
     }
 }
 
-extension MovieListContainerCoordinator: SelectedMovie {
+extension TabBarCoordinator: SelectedMovie {
     func onSelectedMovie(idMovie: Int) {
         let movieDetailCoordinator = MovieDetailCoordinator(presenter: presenter, movieId: idMovie)
         movieDetailCoordinator.start()

@@ -8,17 +8,14 @@
 import UIKit
 
 class ApplicationCoordinator: Coordinator {
-    let window: UIWindow  // 2
-    let rootViewController: UINavigationController  //
+    let window: UIWindow
+    let rootViewController: UINavigationController
     let homeCoordinator: HomeCoordinator
 
-    init(windowScene: UIWindowScene) { // 4
-        // creación de la ventana usada, con las proporciones de pantalla del dispositivo
+    init(windowScene: UIWindowScene) {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        //    kanjiStorage = KanjiStorage()
         rootViewController = UINavigationController()
-        rootViewController.navigationBar.prefersLargeTitles = true
 
         homeCoordinator = HomeCoordinator(presenter: rootViewController)
 

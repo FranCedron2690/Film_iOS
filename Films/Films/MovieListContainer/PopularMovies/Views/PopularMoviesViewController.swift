@@ -64,6 +64,11 @@ class PopularMoviesViewController: BaseViewController {
 }
 
 extension PopularMoviesViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        200
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchBarHeaderTable?.text != nil &&  searchBarHeaderTable?.text?.isEmpty == false {
             return filterPopularMovies?.count ?? 0

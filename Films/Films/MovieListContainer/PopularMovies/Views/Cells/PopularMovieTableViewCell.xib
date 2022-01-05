@@ -83,7 +83,6 @@
                     <constraint firstItem="vEx-or-qCQ" firstAttribute="leading" secondItem="gVj-HD-b6N" secondAttribute="trailing" constant="15" id="71L-R7-LTW"/>
                     <constraint firstAttribute="trailing" secondItem="vEx-or-qCQ" secondAttribute="trailing" constant="15" id="7yp-CM-4mq"/>
                     <constraint firstItem="vEx-or-qCQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Hem-3j-q2g"/>
-                    <constraint firstAttribute="bottom" secondItem="gVj-HD-b6N" secondAttribute="bottom" constant="15" id="Kcb-dk-b9a"/>
                     <constraint firstItem="gVj-HD-b6N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zDF-kh-5UZ"/>
                 </constraints>
             </tableViewCellContentView>

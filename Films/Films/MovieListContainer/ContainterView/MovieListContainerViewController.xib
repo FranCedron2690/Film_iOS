@@ -32,7 +32,6 @@
                 </segmentedControl>
                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Lu2-do-K1b" userLabel="Container View">
                     <rect key="frame" x="15" y="59" width="384" height="757"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
