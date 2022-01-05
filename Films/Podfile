@@ -13,4 +13,5 @@ target 'Films' do
   pod 'SwiftLint'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
+pod 'Firebase/Messaging'
 end
