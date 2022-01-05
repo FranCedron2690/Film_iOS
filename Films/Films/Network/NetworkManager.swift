@@ -15,7 +15,6 @@ class NetworkManager {
     private init() {}
     static let shared = NetworkManager()
     private let provider = MoyaProvider<MoviesService>()
-    
 
     func execute<T: Decodable>(toExecute: MoviesService, onOk: @escaping(T) -> Void, onError: @escaping(NetworkError) -> Void) {
             self.provider.request(toExecute) { [weak self] result in
