@@ -22,7 +22,7 @@ class CrashalyticsManager {
         let userInfo = [
           "URL": urlExecuted,
           "Status Code": String(codeStatus),
-          "Message info error": errorMessage
+          "Message_info_error": errorMessage
         ]
 
         let error = NSError.init(domain: "Error executing URL",

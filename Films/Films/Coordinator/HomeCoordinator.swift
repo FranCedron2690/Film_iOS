@@ -15,8 +15,8 @@ class HomeCoordinator: Coordinator {
         movieListContainerCoordinator = TabBarCoordinator(presenter: presenter)// MovieListContainerCoordinator(presenter: presenter)
     }
     func start() {
-        let view = HomeViewController(nibName: "HomeViewController", bundle: Bundle.main)
-        view.viewModel = HomeViewModel(homeDelegate: self)
+        let view = LoginRegisterViewController(nibName: "LoginRegisterViewController", bundle: Bundle.main) // HomeViewController(nibName: "HomeViewController", bundle: Bundle.main)
+//        view.viewModel = HomeViewModel(homeDelegate: self)
         presenter.pushViewController(view, animated: true)
     }
 }
