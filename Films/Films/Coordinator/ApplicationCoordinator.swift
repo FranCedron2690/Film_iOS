@@ -10,14 +10,14 @@ import UIKit
 class ApplicationCoordinator: Coordinator {
     let window: UIWindow
     let rootViewController: UINavigationController
-    let homeCoordinator: HomeCoordinator
+    let homeCoordinator: LoginCoordinator
 
     init(windowScene: UIWindowScene) {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         rootViewController = UINavigationController()
 
-        homeCoordinator = HomeCoordinator(presenter: rootViewController)
+        homeCoordinator = LoginCoordinator(presenter: rootViewController)
 
         window.windowScene = windowScene
 

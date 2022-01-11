@@ -21,7 +21,7 @@ class MovieListViewController: BaseViewController {
 
         tableViewMovieCategories.dataSource = self
         tableViewMovieCategories.delegate = self
-        tableViewMovieCategories.register(UINib(nibName: "MoviesListByCategoryViewCell", bundle: Bundle.main), forCellReuseIdentifier: Constants.CellNames.movieCategoryTableViewCell)
+        tableViewMovieCategories.register(UINib(nibName: "MoviesListByCategoryViewCell", bundle: Bundle.main), forCellReuseIdentifier: GlobalConstants.CellNames.movieCategoryTableViewCell)
 
         viewModel?.downloadDataDelegate = self
         viewModel?.downloadCategoriesMovies()
@@ -45,7 +45,7 @@ extension MovieListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellNames.movieCategoryTableViewCell, for: indexPath) as! MoviesListByCategoryViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: GlobalConstants.CellNames.movieCategoryTableViewCell, for: indexPath) as! MoviesListByCategoryViewCell
 
         if let lastCategoryOffsetData = cell.getCategoryOffset() {
             viewModel?.saveOffsetCategory(nameCategory: lastCategoryOffsetData.nameCategory, offset: lastCategoryOffsetData.offset)

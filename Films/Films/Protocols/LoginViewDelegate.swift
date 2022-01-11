@@ -6,6 +6,7 @@
 //
 
 import Foundation
-protocol HomeDelegate: AnyObject {
+protocol LoginViewDelegate: AnyObject {
     func onLoginOk ()
+    func onSignUpClick ()
 }

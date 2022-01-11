@@ -31,7 +31,7 @@ class MoviesListByCategoryViewCell: UITableViewCell {// swiftlint:disable force_
         super.awakeFromNib()
         collectionMovies.dataSource = self
         collectionMovies.delegate = self
-        collectionMovies.register(UINib(nibName: "MoviePosterImageViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: Constants.CellNames.movieCell)
+        collectionMovies.register(UINib(nibName: "MoviePosterImageViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: GlobalConstants.CellNames.movieCell)
 
         viewModel.downloadDataDelegate = self
 
@@ -93,7 +93,7 @@ extension MoviesListByCategoryViewCell: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellNames.movieCell, for: indexPath) as! MoviePosterImageViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GlobalConstants.CellNames.movieCell, for: indexPath) as! MoviePosterImageViewCell
 
         if let safeImage = viewModel.dataMoviesBySection?.results[indexPath.row].posterPath {
             cell.setCachingImage(pathImage: safeImage)

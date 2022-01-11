@@ -23,7 +23,7 @@ class PopularMoviesViewController: BaseViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "PopularMovieTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: Constants.CellNames.popularMovieCell)
+        tableView.register(UINib(nibName: "PopularMovieTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: GlobalConstants.CellNames.popularMovieCell)
 
         viewModel?.downloadDataDelegate = self
         viewModel?.downloadPopularListMovies()
@@ -79,7 +79,7 @@ extension PopularMoviesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellNames.popularMovieCell, for: indexPath) as! PopularMovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: GlobalConstants.CellNames.popularMovieCell, for: indexPath) as! PopularMovieTableViewCell
 
         if searchBarHeaderTable?.text != nil &&  searchBarHeaderTable?.text?.isEmpty == false {
             if let movieData = filterPopularMovies?[indexPath.row] {

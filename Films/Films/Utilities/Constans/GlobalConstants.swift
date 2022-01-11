@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Constants {
+struct GlobalConstants {
 
     struct CellNames {
 
