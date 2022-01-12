@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "backgroundCinema.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

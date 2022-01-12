@@ -4,13 +4,12 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoundedBoxTextField" customModule="Films" customModuleProvider="target">
             <connections>
-                <outlet property="textField" destination="Y7q-Uv-UJj" id="FMy-Hc-qpi"/>
+                <outlet property="textFieldData" destination="Y7q-Uv-UJj" id="FMy-Hc-qpi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,30 +17,24 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="texto....." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-Uv-UJj">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="texto....." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-Uv-UJj" userLabel="TextField">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Ebd-zs-BoZ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="LuY-ly-K7R"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Y7q-Uv-UJj" firstAttribute="leading" secondItem="Ial-gt-8c5" secondAttribute="leading" id="RkH-Ff-Y9f"/>
                 <constraint firstAttribute="trailing" secondItem="Y7q-Uv-UJj" secondAttribute="trailing" id="gUq-lH-wNV"/>
-                <constraint firstItem="Y7q-Uv-UJj" firstAttribute="bottom" secondItem="LuY-ly-K7R" secondAttribute="bottom" id="p6p-XS-0lS"/>
+                <constraint firstItem="Y7q-Uv-UJj" firstAttribute="bottom" secondItem="Ial-gt-8c5" secondAttribute="bottom" id="p6p-XS-0lS"/>
                 <constraint firstItem="Y7q-Uv-UJj" firstAttribute="top" secondItem="Ial-gt-8c5" secondAttribute="top" id="tNc-h6-DKq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="302.89855072463769" y="175.44642857142856"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

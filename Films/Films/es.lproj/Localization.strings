@@ -11,6 +11,8 @@
 "UserPlaceholderText" = "Usuario....";
 "PasswordPlaceholderText" = "Cotraseña....";
 "MailPlaceholderText" = "Mail....";
+"bornedPlaceholderText" = "F.Nac:";
+"CodePostalPlaceholderText" = "Código postal....";
 "LoginButtonText" = "ENTRAR";
 "RetryLoginButtonText" = "REINTENTAR";
 "CreateAccountButtonText" = "CREAR CUENTA";
@@ -18,6 +20,8 @@
 "registerSignUpText" = "Registrarse";
 "registerEmtpyUserError" = "El usuario está vacío!!";
 "registerEmtpyMailError" = "El mail está vacío!!!";
+"registerEmtpyPostalCodeError" = "El código postal está vacío!!!";
+"registerEmtpyBornDateError" = "La fecha de nacimiento está vacía!!!!";
 "registerEmtpyPasswordError" = "La constraseña está vacía!";
 "registerNoDataAcceptError" = "Debes aceptar los datos para crear un nuevo usuario";
 "registerTextReadAgreeeTerms" = "He leido y acepto los terminos y condiciones";

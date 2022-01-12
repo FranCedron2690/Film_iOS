@@ -12,6 +12,8 @@
 "UserPlaceholderText" = "User....";
 "PasswordPlaceholderText" = "Password....";
 "MailPlaceholderText" = "Mail....";
+"bornedPlaceholderText" = "Born:";
+"CodePostalPlaceholderText" = "Postal code....";
 "LoginButtonText" = "LOGIN";
 "RetryLoginButtonText" = "RETRY";
 "CreateAccountButtonText" = "CREATE ACCOUNT";
@@ -19,6 +21,8 @@
 "registerSignUpText" = "Sign Up";
 "registerEmtpyUserError" = "The user is empty!!";
 "registerEmtpyMailError" = "The mail is empty!!";
+"registerEmtpyPostalCodeError" = "The postal code is empty!!!!";
+"registerEmtpyBornDateError" = "The born date is empty!!!!";
 "registerEmtpyPasswordError" = "The password is empty!!";
 "registerNoDataAcceptError" = "You must accept the data to create a new user";
 "registerTextReadAgreeeTerms" = "I read and agree to Terms & Conditions";

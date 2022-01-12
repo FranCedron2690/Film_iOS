@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoundedBoxDate" customModule="Films" customModuleProvider="target">
+            <connections>
+                <outlet property="datePicker" destination="ZWe-K0-zh3" id="Qsq-ub-RME"/>
+                <outlet property="imageLeft" destination="VHZ-QG-nDa" id="cxN-gn-n6j"/>
+                <outlet property="labelDescription" destination="g4N-ZD-BsI" id="t50-9Z-GP2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="TVj-7M-bmQ">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VHZ-QG-nDa">
+                    <rect key="frame" x="20" y="0.0" width="25" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="WfE-6t-Dzn"/>
+                        <constraint firstAttribute="height" constant="50" id="bhr-jP-40X"/>
+                    </constraints>
+                </imageView>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-K0-zh3">
+                    <rect key="frame" x="151" y="0.0" width="243" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="YBd-Qq-R3b"/>
+                    </constraints>
+                </datePicker>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4N-ZD-BsI">
+                    <rect key="frame" x="55" y="0.0" width="41.5" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="vSl-hh-Azr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="maB-Bn-w0c"/>
+            <constraints>
+                <constraint firstItem="maB-Bn-w0c" firstAttribute="bottom" secondItem="g4N-ZD-BsI" secondAttribute="bottom" id="9E1-fj-0eF"/>
+                <constraint firstItem="g4N-ZD-BsI" firstAttribute="top" secondItem="TVj-7M-bmQ" secondAttribute="top" id="9fK-Ww-62H"/>
+                <constraint firstAttribute="bottom" secondItem="ZWe-K0-zh3" secondAttribute="bottom" id="Ch4-H7-j9J"/>
+                <constraint firstAttribute="bottom" secondItem="VHZ-QG-nDa" secondAttribute="bottom" id="Jw3-av-kxZ"/>
+                <constraint firstItem="ZWe-K0-zh3" firstAttribute="top" secondItem="TVj-7M-bmQ" secondAttribute="top" id="Q3x-b8-2qe"/>
+                <constraint firstAttribute="trailing" secondItem="ZWe-K0-zh3" secondAttribute="trailing" constant="20" id="QQW-BZ-a1e"/>
+                <constraint firstItem="g4N-ZD-BsI" firstAttribute="leading" secondItem="VHZ-QG-nDa" secondAttribute="trailing" constant="10" id="UoN-gS-TsH"/>
+                <constraint firstItem="ZWe-K0-zh3" firstAttribute="leading" secondItem="g4N-ZD-BsI" secondAttribute="trailing" constant="54" id="iUz-jN-cda"/>
+                <constraint firstItem="VHZ-QG-nDa" firstAttribute="top" secondItem="TVj-7M-bmQ" secondAttribute="top" id="zCn-Bp-0By"/>
+                <constraint firstItem="VHZ-QG-nDa" firstAttribute="leading" secondItem="maB-Bn-w0c" secondAttribute="leading" constant="20" id="zru-Li-8eN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-107.24637681159422" y="99.776785714285708"/>
+        </view>
+    </objects>
+</document>

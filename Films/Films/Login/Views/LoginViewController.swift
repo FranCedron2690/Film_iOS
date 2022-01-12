@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         translateTexts()
+        applyStyles()
         showButtonLogin()
     }
     
@@ -56,6 +57,5 @@ extension LoginViewController: UIViewControllerProtocol {
     }
 
     func applyStyles() {
-        
     }
 }

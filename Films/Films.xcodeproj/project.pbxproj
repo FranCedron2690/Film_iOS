@@ -45,6 +45,11 @@
 		6182547C2774B15200C17C9A /* MovieListContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6182547A2774B15200C17C9A /* MovieListContainerViewController.swift */; };
 		6182547D2774B15200C17C9A /* MovieListContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6182547B2774B15200C17C9A /* MovieListContainerViewController.xib */; };
 		6182547F2774C85100C17C9A /* PopularMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6182547E2774C85100C17C9A /* PopularMoviesViewModel.swift */; };
+		619B694F278EC806006D564F /* viewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B694E278EC806006D564F /* viewExtension.swift */; };
+		619B6957278EEE56006D564F /* CustomControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B6956278EEE56006D564F /* CustomControl.swift */; };
+		619B6959278EF7EB006D564F /* RoundBoxControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B6958278EF7EB006D564F /* RoundBoxControl.swift */; };
+		619B6961278F2026006D564F /* RoundedBoxDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B6960278F2026006D564F /* RoundedBoxDate.swift */; };
+		619B6963278F2101006D564F /* RoundedBoxDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619B6962278F2101006D564F /* RoundedBoxDate.xib */; };
 		619E0B12277C589B0028F562 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B11277C589B0028F562 /* NetworkError.swift */; };
 		619E0B16277C746E0028F562 /* AlertToCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B15277C746E0028F562 /* AlertToCoordinator.swift */; };
 		61AB621927735B55004B7817 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB621827735B55004B7817 /* MovieModel.swift */; };
@@ -112,6 +117,11 @@
 		6182547A2774B15200C17C9A /* MovieListContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListContainerViewController.swift; sourceTree = "<group>"; };
 		6182547B2774B15200C17C9A /* MovieListContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListContainerViewController.xib; sourceTree = "<group>"; };
 		6182547E2774C85100C17C9A /* PopularMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesViewModel.swift; sourceTree = "<group>"; };
+		619B694E278EC806006D564F /* viewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewExtension.swift; sourceTree = "<group>"; };
+		619B6956278EEE56006D564F /* CustomControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControl.swift; sourceTree = "<group>"; };
+		619B6958278EF7EB006D564F /* RoundBoxControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBoxControl.swift; sourceTree = "<group>"; };
+		619B6960278F2026006D564F /* RoundedBoxDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBoxDate.swift; sourceTree = "<group>"; };
+		619B6962278F2101006D564F /* RoundedBoxDate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundedBoxDate.xib; sourceTree = "<group>"; };
 		619E0B11277C589B0028F562 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		619E0B15277C746E0028F562 /* AlertToCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertToCoordinator.swift; sourceTree = "<group>"; };
 		61AB621827735B55004B7817 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
@@ -197,8 +207,6 @@
 			children = (
 				616A1E2C278868E2009A0B84 /* LoginRegisterViewController.swift */,
 				616A1E2D278868E2009A0B84 /* LoginRegisterViewController.xib */,
-				61792DD1278C3CD9001BAD8F /* RoundedBoxTextField.swift */,
-				61792DD5278C55BC001BAD8F /* RoundedBoxTextField.xib */,
 				617AA546278DADC4006E4C79 /* LoginRegisterViewModel.swift */,
 			);
 			path = Register;
@@ -334,6 +342,27 @@
 			path = MovieListContainer;
 			sourceTree = "<group>";
 		};
+		619B6950278EE282006D564F /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				619B6956278EEE56006D564F /* CustomControl.swift */,
+				619B6951278EE293006D564F /* RoundBox */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		619B6951278EE293006D564F /* RoundBox */ = {
+			isa = PBXGroup;
+			children = (
+				619B6958278EF7EB006D564F /* RoundBoxControl.swift */,
+				61792DD1278C3CD9001BAD8F /* RoundedBoxTextField.swift */,
+				61792DD5278C55BC001BAD8F /* RoundedBoxTextField.xib */,
+				619B6960278F2026006D564F /* RoundedBoxDate.swift */,
+				619B6962278F2101006D564F /* RoundedBoxDate.xib */,
+			);
+			path = RoundBox;
+			sourceTree = "<group>";
+		};
 		61AB621E27737A98004B7817 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +401,7 @@
 			children = (
 				61AB621A277368F9004B7817 /* imageExtension.swift */,
 				617AA54A278DDA32006E4C79 /* viewControllerExtension.swift */,
+				619B694E278EC806006D564F /* viewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,6 +427,7 @@
 		61C05A202771CF460013CAC8 /* Films */ = {
 			isa = PBXGroup;
 			children = (
+				619B6950278EE282006D564F /* Controls */,
 				61C05A212771CF460013CAC8 /* AppDelegate.swift */,
 				61C05A232771CF460013CAC8 /* SceneDelegate.swift */,
 				6172905B2775CD2E009ADF3D /* Bases */,
@@ -538,6 +569,7 @@
 				6182547D2774B15200C17C9A /* MovieListContainerViewController.xib in Resources */,
 				618254772774830000C17C9A /* PopularMovieTableViewCell.xib in Resources */,
 				6182547227747A8F00C17C9A /* PopularMoviesViewController.xib in Resources */,
+				619B6963278F2101006D564F /* RoundedBoxDate.xib in Resources */,
 				61C05A482771EF190013CAC8 /* MovieListViewController.xib in Resources */,
 				61C05A4C2771F73E0013CAC8 /* MoviePosterImageViewCell.xib in Resources */,
 				6172906F2775E124009ADF3D /* MoviesListByCategoryViewCell.xib in Resources */,
@@ -635,12 +667,15 @@
 				6179609C2785E6C900154E5D /* MovieTabBarController.swift in Sources */,
 				6126F59F2779D007001AB810 /* SelectedMovie.swift in Sources */,
 				61AB621927735B55004B7817 /* MovieModel.swift in Sources */,
+				619B6961278F2026006D564F /* RoundedBoxDate.swift in Sources */,
+				619B6959278EF7EB006D564F /* RoundBoxControl.swift in Sources */,
 				6172905D2775CD64009ADF3D /* BaseViewModel.swift in Sources */,
 				61B0EBD9277B306B00724237 /* LoginViewModel.swift in Sources */,
 				61D8B9682772124200F903AE /* MovieListModel.swift in Sources */,
 				617D923E277325CD00F2735B /* MovieCategoriesModel.swift in Sources */,
 				61C05A3C2771D5050013CAC8 /* MoviesService.swift in Sources */,
 				6126F5962779C391001AB810 /* MovieListContainerCoordinator.swift in Sources */,
+				619B694F278EC806006D564F /* viewExtension.swift in Sources */,
 				617AA545278DACB4006E4C79 /* LoginRegisterCoordinator.swift in Sources */,
 				6126F5942779BB98001AB810 /* ApplicationCoordinator.swift in Sources */,
 				61AB621D27736DE3004B7817 /* NetworkManager.swift in Sources */,
@@ -671,6 +706,7 @@
 				6179609E2785ED8600154E5D /* TabBarCoordinator.swift in Sources */,
 				617AA549278DCBA4006E4C79 /* LoginRegisterDelegate.swift in Sources */,
 				6182547C2774B15200C17C9A /* MovieListContainerViewController.swift in Sources */,
+				619B6957278EEE56006D564F /* CustomControl.swift in Sources */,
 				61AB621B277368F9004B7817 /* imageExtension.swift in Sources */,
 				616A1E2E278868E2009A0B84 /* LoginRegisterViewController.swift in Sources */,
 				6172905A2775CA44009ADF3D /* MovieListViewModel.swift in Sources */,
