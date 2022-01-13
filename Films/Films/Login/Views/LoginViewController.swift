@@ -48,12 +48,12 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UIViewControllerProtocol {
     func translateTexts () {
-        userLabel.text = getStringTranslated(key: "UserText")
-        passwordLabel.text = getStringTranslated(key: "PasswordText")
-        userTextField.placeholder = getStringTranslated(key: "UserPlaceholderText")
-        passwordTextField.placeholder = getStringTranslated(key: "PasswordPlaceholderText")
-        loginButton.setTitle(getStringTranslated(key: "LoginButtonText"), for: .normal)
-        retryButton.setTitle(getStringTranslated(key: "RetryLoginButtonText"), for: .normal)
+        userLabel.text = LocalizedConstants.Login.userLabel.localized()
+        passwordLabel.text = LocalizedConstants.Login.passwordLabel.localized()
+        userTextField.placeholder = LocalizedConstants.Login.userPlaceholder.localized()
+        passwordTextField.placeholder = LocalizedConstants.Login.passwordPlaceholderText.localized()
+        loginButton.setTitle(LocalizedConstants.Login.loginButtonText.localized(), for: .normal)
+        retryButton.setTitle(LocalizedConstants.Login.retryLoginButtonText.localized(), for: .normal)
     }
 
     func applyStyles() {

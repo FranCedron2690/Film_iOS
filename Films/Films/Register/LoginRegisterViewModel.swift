@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class LoginRegisterViewModel: BaseViewModel {
     
+    public let user = BehaviorRelay<String>(value: "prueba")
+
     private weak var loginRegisterDelegate: LoginRegisterDelegate?
 
     init (viewDelegate: LoginRegisterDelegate) {
@@ -16,8 +20,9 @@ class LoginRegisterViewModel: BaseViewModel {
     }
     
     func registerUser() {
-        print("Usuario registrado correctamente!!")
-        loginRegisterDelegate?.goBackToLogin()
+//        user.onNext("Holaa")
+        print(user.value)
+//        loginRegisterDelegate?.goBackToLogin()
     }
     
     func goBackLogin() {

@@ -5,29 +5,28 @@
   Created by fjcedron@hiberus.com on 21/12/21.
 */
 
-//LOGIN AND REGISTER
+"User_Text" = "User:";
+"Password_Text" = "Password:";
+"User_Placeholder_Text" = "User....";
+"Password_Placeholder_Text" = "Password....";
+"Mail_Placeholder_Text" = "Mail....";
+"Borned_Placeholder_Text" = "Born:";
+"Code_Postal_Placeholder_Text" = "Postal code....";
+"Login_Button_Text" = "LOGIN";
+"Retry_Login_Button_Text" = "RETRY";
+"Create_Account_Button_Text" = "CREATE ACCOUNT";
 
-"UserText" = "User:";
-"PasswordText" = "Password:";
-"UserPlaceholderText" = "User....";
-"PasswordPlaceholderText" = "Password....";
-"MailPlaceholderText" = "Mail....";
-"bornedPlaceholderText" = "Born:";
-"CodePostalPlaceholderText" = "Postal code....";
-"LoginButtonText" = "LOGIN";
-"RetryLoginButtonText" = "RETRY";
-"CreateAccountButtonText" = "CREATE ACCOUNT";
 
-"registerSignUpText" = "Sign Up";
-"registerEmtpyUserError" = "The user is empty!!";
-"registerEmtpyMailError" = "The mail is empty!!";
-"registerEmtpyPostalCodeError" = "The postal code is empty!!!!";
-"registerEmtpyBornDateError" = "The born date is empty!!!!";
-"registerEmtpyPasswordError" = "The password is empty!!";
-"registerNoDataAcceptError" = "You must accept the data to create a new user";
-"registerTextReadAgreeeTerms" = "I read and agree to Terms & Conditions";
-"registerHasAnAccount" = "Already have an account?";
-"registerSignIn" = "Sign in";
+"Register_Sign_Up_Text" = "Sign Up";
+"Register_Emtpy_User_Error" = "The user is empty!!";
+"Register_Emtpy_Mail_Error" = "The mail is empty!!";
+"Register_Emtpy_Postal_Code_Error" = "The postal code is empty!!!!";
+"Register_Emtpy_Born_Date_Error" = "The born date is empty!!!!";
+"Register_Emtpy_Password_Error" = "The password is empty!!";
+"Register_No_Data_Accept_Error" = "You must accept the data to create a new user";
+"Register_Text_Read_Agreee_Terms" = "I read and agree to Terms & Conditions";
+"Register_Has_An_Account" = "Already have an account?";
+"Register_Sign_In" = "Sign in";
 
 //LIST MOVIES
-"PopularText" = "Popular";
+"Popular_Text" = "Popular";

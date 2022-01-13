@@ -22,6 +22,10 @@ class CustomControl: UIView {
         commonInit()
     }
     
+    func commonInit() {
+        xibSetup()
+    }
+    
     func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName!, bundle: bundle)
@@ -41,8 +45,4 @@ class CustomControl: UIView {
             }
         }
     }
-    
-    func commonInit() {
-        
-    }
-} 
+}

@@ -30,6 +30,7 @@ enum Styles {
         func style(label: UILabel) {
             switch self {
             case .titleLabel:
+                label.text = ""
                 label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
             case .normalLabel:
                 label.font = UIFont.systemFont(ofSize: 17.0)
@@ -40,6 +41,17 @@ enum Styles {
                 label.textColor = UIColor.red
             }
         }
+        
+        var fontSize: CGFloat { switch self {
+        case .titleLabel:
+            return 22
+        case .normalLabel:
+            return 17
+        case .thinLabelInfo:
+            return 12
+        case .errorLabel:
+            return 17
+        }}
     }
     
     enum RoundBoxControls {

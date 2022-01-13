@@ -12,6 +12,26 @@ class RoundedBoxTextField: RoundBoxControl {
     
     @IBOutlet weak var textFieldData: UITextField!
     
+    @IBInspectable var secureImageEnabled: UIImage = UIImage() {
+        didSet {
+            setTextEditLateralContainer(isLeft: false)
+        }
+    }
+    
+    @IBInspectable var secureImageDisabled: UIImage = UIImage()
+    
+    @IBInspectable var isPassword: Bool = Bool() {
+        didSet {
+            setSecurityText()
+        }
+    }
+    
+    @IBInspectable var placelolder: String = String() {
+        didSet {
+            setPlaceholder()
+        }
+    }
+    
     @IBInspectable var numericKeyboard : Bool = false {
         didSet {
             if numericKeyboard {
@@ -23,14 +43,14 @@ class RoundedBoxTextField: RoundBoxControl {
     override func commonInit() {
         nibName = String(describing: type(of: self))
         xibSetup()
-        
+
         textFieldData.delegate = self
     }
-    
+
     override func setTextEditLateralContainer(isLeft: Bool) {
         let container = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: textFieldData.frame.height))
         let posYCenterImage = (textFieldData.frame.height - Constants.imageSize) / 2
-        
+
         if isLeft {
             setLeftViewMode(container: container, posYCenterImage: posYCenterImage)
         } else {
@@ -38,11 +58,11 @@ class RoundedBoxTextField: RoundBoxControl {
         }
     }
     
-    override func setSecurityText() {
+    func setSecurityText() {
         textFieldData.isSecureTextEntry = isPassword
     }
     
-    override func setPlaceholder() {
+    func setPlaceholder() {
         textFieldData.placeholder = placelolder
     }
     

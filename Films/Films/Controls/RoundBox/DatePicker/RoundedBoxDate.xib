@@ -27,7 +27,7 @@
                     </constraints>
                 </imageView>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-K0-zh3">
-                    <rect key="frame" x="151" y="0.0" width="243" height="50"/>
+                    <rect key="frame" x="150.5" y="0.0" width="243.5" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="YBd-Qq-R3b"/>
                     </constraints>

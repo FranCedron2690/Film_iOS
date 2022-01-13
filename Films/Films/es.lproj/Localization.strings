@@ -6,27 +6,29 @@
 */
 
 //HOME AND REGISTER
-"UserText" = "Usuario:";
-"PasswordText" = "Cotraseña:";
-"UserPlaceholderText" = "Usuario....";
-"PasswordPlaceholderText" = "Cotraseña....";
-"MailPlaceholderText" = "Mail....";
-"bornedPlaceholderText" = "F.Nac:";
-"CodePostalPlaceholderText" = "Código postal....";
-"LoginButtonText" = "ENTRAR";
-"RetryLoginButtonText" = "REINTENTAR";
-"CreateAccountButtonText" = "CREAR CUENTA";
 
-"registerSignUpText" = "Registrarse";
-"registerEmtpyUserError" = "El usuario está vacío!!";
-"registerEmtpyMailError" = "El mail está vacío!!!";
-"registerEmtpyPostalCodeError" = "El código postal está vacío!!!";
-"registerEmtpyBornDateError" = "La fecha de nacimiento está vacía!!!!";
-"registerEmtpyPasswordError" = "La constraseña está vacía!";
-"registerNoDataAcceptError" = "Debes aceptar los datos para crear un nuevo usuario";
-"registerTextReadAgreeeTerms" = "He leido y acepto los terminos y condiciones";
-"registerHasAnAccount" = "¿Ya tienes una cuenta?";
-"registerSignIn" = "Iniciar Sesión";
+"User_Text" = "Usuario:";
+"Password_Text" = "Cotraseña:";
+"User_Placeholder_Text" = "Usuario....";
+"Password_Placeholder_Text" = "Cotraseña....";
+"Mail_Placeholder_Text" = "Mail....";
+"Borned_Placeholder_Text" = "F.Nac:";
+"Code_Postal_Placeholder_Text" = "Código postal....";
+"Login_Button_Text" = "ENTRAR";
+"Retry_Login_Button_Text" = "REINTENTAR";
+"Create_Account_Button_Text" = "CREAR CUENTA";
+
+
+"Register_Sign_Up_Text" = "Registrarse";
+"Register_Emtpy_User_Error" = "El usuario está vacío!!";
+"Register_Emtpy_Mail_Error" = "El mail está vacío!!!";
+"Register_Emtpy_Postal_Code_Error" = "El código postal está vacío!!!";
+"Register_Emtpy_Born_Date_Error" = "La fecha de nacimiento está vacía!!!!";
+"Register_Emtpy_Password_Error" = "La constraseña está vacía!";
+"Register_No_Data_Accept_Error" = "Debes aceptar los datos para crear un nuevo usuario";
+"Register_Text_Read_Agreee_Terms" = "He leido y acepto los terminos y condiciones";
+"Register_Has_An_Account" = "¿Ya tienes una cuenta?";
+"Register_Sign_In" = "Iniciar Sesión";
 
 //LIST MOVIES
 "PopularText" = "Popular";

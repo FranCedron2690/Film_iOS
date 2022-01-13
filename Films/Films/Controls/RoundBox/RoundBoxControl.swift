@@ -21,35 +21,7 @@ class RoundBoxControl: CustomControl {
         }
     }
     
-    @IBInspectable var secureImageEnabled: UIImage = UIImage() {
-        didSet {
-            setTextEditLateralContainer(isLeft: false)
-        }
-    }
-    
-    @IBInspectable var secureImageDisabled: UIImage = UIImage()
-    
-    @IBInspectable var isPassword: Bool = Bool() {
-        didSet {
-            setSecurityText()
-        }
-    }
-    
-    @IBInspectable var placelolder: String = String() {
-        didSet {
-            setPlaceholder()
-        }
-    }
-    
     func setTextEditLateralContainer(isLeft: Bool) {
-        
-    }
-    
-    func setSecurityText() {
-        
-    }
-    
-    func setPlaceholder() {
         
     }
 }

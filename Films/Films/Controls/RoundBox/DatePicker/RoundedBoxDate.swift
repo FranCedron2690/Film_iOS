@@ -15,6 +15,12 @@ class RoundedBoxDate: RoundBoxControl {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var labelDescription: UILabel!
     
+    @IBInspectable var textDescription: String = String() {
+        didSet {
+            setTextlabelDescription()
+        }
+    }
+    
     var dateString: String?
     
     private let disposeBag = DisposeBag()
@@ -27,21 +33,23 @@ class RoundedBoxDate: RoundBoxControl {
             dateFormatter.dateFormat = "YY/MM/dd"
             self?.dateString = dateFormatter.string(from: date)
         } onError: { error in
-            
+
         } onCompleted: {
-            
+
         } onDisposed: {
-            
+
         }.disposed(by: disposeBag)
 
     }
-    
+
     override func setTextEditLateralContainer(isLeft: Bool) {
         imageLeft.image = leftIconImage
     }
-    
-    override func setPlaceholder() {
-        labelDescription.text = placelolder
+}
+
+extension RoundedBoxDate: RoundedBoxDateProtocol {
+    func setTextlabelDescription() {
+        labelDescription.text = textDescription
     }
 }
 
