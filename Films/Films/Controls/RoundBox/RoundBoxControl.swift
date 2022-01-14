@@ -9,19 +9,22 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class RoundBoxControl: CustomControl {
+class RoundBoxControl: CustomControl, RoundBoxControlProtocol {
+    
     enum Constants {
         static let cornerRadius: CGFloat = 25
         static let imageSize: CGFloat = 25
     }
-    
+
     @IBInspectable var leftIconImage: UIImage = UIImage() {
         didSet {
-            setTextEditLateralContainer(isLeft: true)
+            do {
+                try setTextEditLateralContainer(isLeft: true)
+            } catch {}
         }
     }
-    
-    func setTextEditLateralContainer(isLeft: Bool) {
-        
+
+    func setTextEditLateralContainer(isLeft: Bool) throws {
+        fatalError("Sobreescribe este método en el control final para que asigne la imagen!!")
     }
 }

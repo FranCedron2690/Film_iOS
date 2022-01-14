@@ -8,22 +8,30 @@
 import Foundation
 import UIKit
 
-class CustomControl: UIView {
+class CustomControl: UIView, CustomControlProtocol {
     
     var nibName: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        do {
+            try commonInit()
+        } catch {
+            
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
+        do {
+            try commonInit()
+        } catch {
+            
+        }
     }
     
-    func commonInit() {
-        xibSetup()
+    func commonInit() throws {
+        fatalError("Debes sobreescribir este método, para establecer el nibName con y llamar en la siguiente linea a xibSetup()!!")
     }
     
     func loadViewFromNib() -> UIView? {

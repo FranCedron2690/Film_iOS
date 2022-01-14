@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 protocol RoundBoxControlProtocol {
-    func commonInit()
-    func setTextEditLateralContainer(isLeft: Bool)
+    var leftIconImage: UIImage {get set}
+    func setTextEditLateralContainer(isLeft: Bool) throws
 }

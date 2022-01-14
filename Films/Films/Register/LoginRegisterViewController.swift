@@ -25,7 +25,7 @@ class LoginRegisterViewController: BaseViewController {
     
     var viewModel: LoginRegisterViewModel?
     
-    //Provisional
+    // Provisional
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -121,15 +121,17 @@ extension LoginRegisterViewController: UIViewControllerProtocol {
     }
     
     func applyStyles() {
-        Styles.Labels.titleLabel.style(label: singUpTitleLabel)
-        Styles.Labels.thinLabelInfo.style(label: textInfoAgreeTerms)
-        Styles.Labels.errorLabel.style(label: errorInfoLabel)
-        Styles.Labels.thinLabelInfo.style(label: existAccountLabel)
-        Styles.Buttons.mainButton.style(button: createAccountButton)
-        Styles.RoundBoxControls.textEdit.style(roundBoxControl: userTextField)
-        Styles.RoundBoxControls.textEdit.style(roundBoxControl: mailTextField)
-        Styles.RoundBoxControls.textEdit.style(roundBoxControl: passwordTextField)
-        Styles.RoundBoxControls.textEdit.style(roundBoxControl: codePostalRoundBoxControl)
-        Styles.RoundBoxControls.datePicker.style(roundBoxControl: dateBornRoundBoxControl)
+        singUpTitleLabel.applyStyle(style: Styles.Labels.titleLabel)
+        textInfoAgreeTerms.applyStyle(style: Styles.Labels.thinLabelInfo)
+        errorInfoLabel.applyStyle(style: Styles.Labels.errorLabel)
+        existAccountLabel.applyStyle(style: Styles.Labels.thinLabelInfo)
+                
+        createAccountButton.applyStyle(style: Styles.Buttons.mainButton)
+        
+        userTextField.applyStyle(style: Styles.RoundBoxControls.textEdit)
+        mailTextField.applyStyle(style: Styles.RoundBoxControls.textEdit)
+        passwordTextField.applyStyle(style: Styles.RoundBoxControls.textEdit)
+        codePostalRoundBoxControl.applyStyle(style: Styles.RoundBoxControls.textEdit)
+        dateBornRoundBoxControl.applyStyle(style: Styles.RoundBoxControls.datePicker)
     }
 }

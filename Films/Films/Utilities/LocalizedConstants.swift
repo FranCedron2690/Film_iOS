@@ -24,7 +24,7 @@ enum LocalizedConstants {
         static let emtpyPostalCodeError = "Register_Emtpy_Postal_Code_Error"
         static let emtpyPasswordError = "Register_Emtpy_Password_Error"
         static let noDataAcceptError = "Register_No_Data_Accept_Error"
-        static let signUpTitleText = "Register_SignUp_Text"
+        static let signUpTitleText = "Register_Sign_Up_Text"
         static let userPlaceholder = "User_Placeholder_Text"
         static let mailPlaceholder = "Mail_Placeholder_Text"
         static let codePostalPlaceholder = "Code_Postal_Placeholder_Text"

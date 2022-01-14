@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import RxSwift
 
-class RoundedBoxDate: RoundBoxControl {
+class RoundedBoxDate: RoundBoxControl, RoundedBoxDateProtocol {
     
     @IBOutlet weak var imageLeft: UIImageView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -28,26 +28,22 @@ class RoundedBoxDate: RoundBoxControl {
     override func commonInit() {
         nibName = String(describing: type(of: self))
         xibSetup()
-        datePicker.rx.date.changed.distinctUntilChanged().subscribe { [weak self] date in
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YY/MM/dd"
-            self?.dateString = dateFormatter.string(from: date)
-        } onError: { error in
-
-        } onCompleted: {
-
-        } onDisposed: {
-
+        datePicker.rx.date.changed.distinctUntilChanged().subscribe { [weak self] event in
+            switch event {
+            case .next(let date):
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "YY/MM/dd"
+                self?.dateString = dateFormatter.string(from: date)
+            default:
+                return
+            }
         }.disposed(by: disposeBag)
-
     }
-
+    
     override func setTextEditLateralContainer(isLeft: Bool) {
         imageLeft.image = leftIconImage
     }
-}
-
-extension RoundedBoxDate: RoundedBoxDateProtocol {
+    
     func setTextlabelDescription() {
         labelDescription.text = textDescription
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class RoundedBoxTextField: RoundBoxControl {
+class RoundedBoxTextField: RoundBoxControl, RoundedBoxTextFieldProtocol {
     
     @IBOutlet weak var textFieldData: UITextField!
     

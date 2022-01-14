@@ -8,5 +8,6 @@
 import Foundation
 
 protocol RoundedBoxDateProtocol {
+    var textDescription: String {get set}
     func setTextlabelDescription()    
 }

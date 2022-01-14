@@ -6,7 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CustomControlProtocol {
-    func commonInit()
+    var nibName: String? { get set }
+    func commonInit() throws
+    func loadViewFromNib() -> UIView?
+    func xibSetup()
 }
