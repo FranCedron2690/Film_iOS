@@ -4,14 +4,16 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoundedBoxDate" customModule="Films" customModuleProvider="target">
             <connections>
-                <outlet property="datePicker" destination="ZWe-K0-zh3" id="Qsq-ub-RME"/>
-                <outlet property="imageLeft" destination="VHZ-QG-nDa" id="cxN-gn-n6j"/>
-                <outlet property="labelDescription" destination="g4N-ZD-BsI" id="t50-9Z-GP2"/>
+                <outlet property="contentView" destination="Jbj-op-JtU" id="CZ1-gj-djv"/>
+                <outlet property="datePicker" destination="EL9-Gs-hTL" id="HA3-s7-YHk"/>
+                <outlet property="imageLeft" destination="Wbn-2S-Kka" id="hot-Rh-8Td"/>
+                <outlet property="labelDescription" destination="Xd1-aq-Q0Y" id="ktT-Ex-Yuu"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,44 +21,91 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VHZ-QG-nDa">
-                    <rect key="frame" x="20" y="0.0" width="25" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="WfE-6t-Dzn"/>
-                        <constraint firstAttribute="height" constant="50" id="bhr-jP-40X"/>
-                    </constraints>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wbn-2S-Kka">
+                    <rect key="frame" x="0.0" y="12.5" width="50" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-K0-zh3">
-                    <rect key="frame" x="150.5" y="0.0" width="243.5" height="50"/>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-op-JtU">
+                    <rect key="frame" x="60" y="0.0" width="334" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-aq-Q0Y">
+                            <rect key="frame" x="0.0" y="0.0" width="42" height="31"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="EL9-Gs-hTL">
+                            <rect key="frame" x="103" y="0.0" width="203" height="31"/>
+                        </datePicker>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="YBd-Qq-R3b"/>
+                        <constraint firstAttribute="bottom" secondItem="EL9-Gs-hTL" secondAttribute="bottom" id="6Jg-if-UBF"/>
+                        <constraint firstAttribute="trailing" secondItem="EL9-Gs-hTL" secondAttribute="trailing" id="ESx-Z8-qcn"/>
+                        <constraint firstAttribute="bottom" secondItem="Xd1-aq-Q0Y" secondAttribute="bottom" id="I8q-NX-L1b"/>
+                        <constraint firstItem="EL9-Gs-hTL" firstAttribute="top" secondItem="Jbj-op-JtU" secondAttribute="top" id="PYF-Bs-a14"/>
+                        <constraint firstItem="Xd1-aq-Q0Y" firstAttribute="leading" secondItem="Jbj-op-JtU" secondAttribute="leading" id="Xui-bX-6r6"/>
+                        <constraint firstItem="EL9-Gs-hTL" firstAttribute="leading" secondItem="Xd1-aq-Q0Y" secondAttribute="trailing" constant="10" id="a6x-O7-IG4"/>
+                        <constraint firstItem="Xd1-aq-Q0Y" firstAttribute="top" secondItem="Jbj-op-JtU" secondAttribute="top" id="vnU-5Q-UNo"/>
                     </constraints>
-                </datePicker>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4N-ZD-BsI">
-                    <rect key="frame" x="55" y="0.0" width="41.5" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="vSl-hh-Azr"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="maB-Bn-w0c"/>
-            <constraints>
-                <constraint firstItem="maB-Bn-w0c" firstAttribute="bottom" secondItem="g4N-ZD-BsI" secondAttribute="bottom" id="9E1-fj-0eF"/>
-                <constraint firstItem="g4N-ZD-BsI" firstAttribute="top" secondItem="TVj-7M-bmQ" secondAttribute="top" id="9fK-Ww-62H"/>
-                <constraint firstAttribute="bottom" secondItem="ZWe-K0-zh3" secondAttribute="bottom" id="Ch4-H7-j9J"/>
-                <constraint firstAttribute="bottom" secondItem="VHZ-QG-nDa" secondAttribute="bottom" id="Jw3-av-kxZ"/>
-                <constraint firstItem="ZWe-K0-zh3" firstAttribute="top" secondItem="TVj-7M-bmQ" secondAttribute="top" id="Q3x-b8-2qe"/>
-                <constraint firstAttribute="trailing" secondItem="ZWe-K0-zh3" secondAttribute="trailing" constant="20" id="QQW-BZ-a1e"/>
-                <constraint firstItem="g4N-ZD-BsI" firstAttribute="leading" secondItem="VHZ-QG-nDa" secondAttribute="trailing" constant="10" id="UoN-gS-TsH"/>
-                <constraint firstItem="ZWe-K0-zh3" firstAttribute="leading" secondItem="g4N-ZD-BsI" secondAttribute="trailing" constant="54" id="iUz-jN-cda"/>
-                <constraint firstItem="VHZ-QG-nDa" firstAttribute="top" secondItem="TVj-7M-bmQ" secondAttribute="top" id="zCn-Bp-0By"/>
-                <constraint firstItem="VHZ-QG-nDa" firstAttribute="leading" secondItem="maB-Bn-w0c" secondAttribute="leading" constant="20" id="zru-Li-8eN"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-107.24637681159422" y="99.776785714285708"/>
         </view>
+        <view contentMode="scaleToFill" id="Tij-Au-Kic">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aq2-52-NFp">
+                    <rect key="frame" x="0.0" y="12.5" width="50" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="32c-ES-nXQ"/>
+                        <constraint firstAttribute="height" constant="25" id="8h8-rH-Dve"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8o-H6-k8E">
+                    <rect key="frame" x="60" y="0.0" width="334" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kif-h2-oar">
+                            <rect key="frame" x="0.0" y="0.0" width="42" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="8qT-ND-LsX">
+                            <rect key="frame" x="55" y="0.0" width="279" height="50"/>
+                        </datePicker>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Kif-h2-oar" firstAttribute="leading" secondItem="X8o-H6-k8E" secondAttribute="leading" id="FO9-yY-plL"/>
+                        <constraint firstItem="8qT-ND-LsX" firstAttribute="top" secondItem="X8o-H6-k8E" secondAttribute="top" id="QQE-H1-hxj"/>
+                        <constraint firstItem="Kif-h2-oar" firstAttribute="top" secondItem="X8o-H6-k8E" secondAttribute="top" id="Urw-g4-CE0"/>
+                        <constraint firstItem="8qT-ND-LsX" firstAttribute="leading" secondItem="Kif-h2-oar" secondAttribute="trailing" constant="13" id="fB1-F4-Rfs"/>
+                        <constraint firstAttribute="bottom" secondItem="8qT-ND-LsX" secondAttribute="bottom" id="lnS-IP-bfP"/>
+                        <constraint firstAttribute="trailing" secondItem="8qT-ND-LsX" secondAttribute="trailing" id="q9I-Uy-KBH"/>
+                        <constraint firstAttribute="bottom" secondItem="Kif-h2-oar" secondAttribute="bottom" id="sKh-37-y3y"/>
+                        <constraint firstAttribute="height" constant="50" id="zSR-Jm-WYG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="MaK-Px-icO"/>
+            <constraints>
+                <constraint firstItem="MaK-Px-icO" firstAttribute="trailing" secondItem="X8o-H6-k8E" secondAttribute="trailing" constant="20" id="5Tb-fI-ddC"/>
+                <constraint firstItem="X8o-H6-k8E" firstAttribute="leading" secondItem="Aq2-52-NFp" secondAttribute="trailing" constant="10" id="6az-Qb-BHs"/>
+                <constraint firstItem="Aq2-52-NFp" firstAttribute="centerY" secondItem="Tij-Au-Kic" secondAttribute="centerY" id="Ahw-St-qbP"/>
+                <constraint firstItem="X8o-H6-k8E" firstAttribute="top" secondItem="Tij-Au-Kic" secondAttribute="top" id="DbQ-kA-yM6"/>
+                <constraint firstItem="Aq2-52-NFp" firstAttribute="leading" secondItem="MaK-Px-icO" secondAttribute="leading" id="Zoo-px-p1s"/>
+                <constraint firstAttribute="bottom" secondItem="X8o-H6-k8E" secondAttribute="bottom" id="kX5-d8-I2h"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-107" y="254"/>
+        </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

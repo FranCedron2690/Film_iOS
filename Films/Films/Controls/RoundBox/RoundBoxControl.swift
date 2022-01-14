@@ -27,4 +27,16 @@ class RoundBoxControl: CustomControl, RoundBoxControlProtocol {
     func setTextEditLateralContainer(isLeft: Bool) throws {
         fatalError("Sobreescribe este método en el control final para que asigne la imagen!!")
     }
+    
+    func addConstraintsView (viewToAddContraints: UIView, viewReference: UIView) {
+        viewToAddContraints.translatesAutoresizingMaskIntoConstraints = false
+        let centerYImageView = viewToAddContraints.centerYAnchor.constraint(equalTo: viewReference.centerYAnchor)
+        let centerXImageView = viewToAddContraints.centerXAnchor.constraint(equalTo: viewReference.centerXAnchor)
+        let heightImageView = viewToAddContraints.heightAnchor.constraint(equalToConstant: 25)
+        let widhtImageView = viewToAddContraints.widthAnchor.constraint(equalToConstant: 55)
+        
+        var constraintsImage = [NSLayoutConstraint]()
+        constraintsImage.append(contentsOf: [centerYImageView, centerXImageView, heightImageView, widhtImageView])
+        NSLayoutConstraint.activate(constraintsImage)
+    }
 }
