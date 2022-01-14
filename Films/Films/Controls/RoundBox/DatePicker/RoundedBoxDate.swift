@@ -31,6 +31,7 @@ class RoundedBoxDate: RoundBoxControl, RoundedBoxDateProtocol {
         xibSetup()
         addImageLftConstraints(viewToAddContraints: imageLeft, viewReference: contentView)
         addContentConstraints(viewToAddContraints: contentView, viewReference: imageLeft)
+        addInternalConstraints(parent: contentView, labelView: labelDescription, datePickerView: datePicker)
         
         datePicker.rx.date.changed.distinctUntilChanged().subscribe { [weak self] event in
             switch event {
@@ -65,6 +66,24 @@ class RoundedBoxDate: RoundBoxControl, RoundedBoxDateProtocol {
         
         var constraintsImage = [NSLayoutConstraint]()
         constraintsImage.append(contentsOf: [heightImageView, topConstant, bottomConstant, trailingConstant, leadingConstant])
+        NSLayoutConstraint.activate(constraintsImage)
+    }
+    
+    func addInternalConstraints (parent: UIView ,labelView: UIView, datePickerView: UIView) {
+        labelView.translatesAutoresizingMaskIntoConstraints = false
+        datePickerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let topLabelConstraint = labelView.topAnchor.constraint(equalTo: parent.topAnchor, constant: 0)
+        let bottomLabelConstraint = labelView.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: 0)
+        let leadingLabelConstraint = labelView.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 0)
+        let trailingLabelConstraint = labelView.trailingAnchor.constraint(equalTo: datePickerView.leadingAnchor, constant: 10)
+        
+        let topDatePickerConstraint = datePickerView.topAnchor.constraint(equalTo: parent.topAnchor, constant: 0)
+        let bottomDatePickerConstraint = datePickerView.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: 0)
+        let leadingDatePickerConstraint = datePickerView.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: 0)
+        
+        var constraintsImage = [NSLayoutConstraint]()
+        constraintsImage.append(contentsOf: [topLabelConstraint, bottomLabelConstraint, leadingLabelConstraint, trailingLabelConstraint, topDatePickerConstraint, bottomDatePickerConstraint, leadingDatePickerConstraint])
         NSLayoutConstraint.activate(constraintsImage)
     }
     

@@ -25,28 +25,22 @@
                     <rect key="frame" x="0.0" y="12.5" width="50" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-op-JtU">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-op-JtU">
                     <rect key="frame" x="60" y="0.0" width="334" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-aq-Q0Y">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-aq-Q0Y">
                             <rect key="frame" x="0.0" y="0.0" width="42" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="EL9-Gs-hTL">
+                        <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="EL9-Gs-hTL">
                             <rect key="frame" x="103" y="0.0" width="203" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </datePicker>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="EL9-Gs-hTL" secondAttribute="bottom" id="6Jg-if-UBF"/>
-                        <constraint firstAttribute="trailing" secondItem="EL9-Gs-hTL" secondAttribute="trailing" id="ESx-Z8-qcn"/>
-                        <constraint firstAttribute="bottom" secondItem="Xd1-aq-Q0Y" secondAttribute="bottom" id="I8q-NX-L1b"/>
-                        <constraint firstItem="EL9-Gs-hTL" firstAttribute="top" secondItem="Jbj-op-JtU" secondAttribute="top" id="PYF-Bs-a14"/>
-                        <constraint firstItem="Xd1-aq-Q0Y" firstAttribute="leading" secondItem="Jbj-op-JtU" secondAttribute="leading" id="Xui-bX-6r6"/>
-                        <constraint firstItem="EL9-Gs-hTL" firstAttribute="leading" secondItem="Xd1-aq-Q0Y" secondAttribute="trailing" constant="10" id="a6x-O7-IG4"/>
-                        <constraint firstItem="Xd1-aq-Q0Y" firstAttribute="top" secondItem="Jbj-op-JtU" secondAttribute="top" id="vnU-5Q-UNo"/>
-                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="maB-Bn-w0c"/>
