@@ -10,5 +10,5 @@ import UIKit
 
 protocol RoundBoxControlProtocol {
     var leftIconImage: UIImage {get set}
-    func setTextEditLateralContainer(isLeft: Bool) throws
+    func setLeftImage() throws
 }

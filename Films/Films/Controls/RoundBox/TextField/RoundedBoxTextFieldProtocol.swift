@@ -14,7 +14,7 @@ protocol RoundedBoxTextFieldProtocol {
     var isPassword: Bool {get set}
     var placelolder: String {get set}    
     var numericKeyboard: Bool {get set}
-    func setTextEditLateralContainer(isLeft: Bool)
+    func setLeftImage()
     func setSecurityText()
     func setPlaceholder()
     func setNumericKeyboard()

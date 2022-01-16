@@ -11,32 +11,46 @@ import UIKit
 @IBDesignable
 class RoundBoxControl: CustomControl, RoundBoxControlProtocol {
     
-    enum Constants {
-        static let cornerRadius: CGFloat = 25
+//    @IBOutlet weak var imageLeft: UIImageView!
+//    @IBOutlet weak var contentView: UIView!
+    
+    enum ConstantsConstraints {
         static let imageSize: CGFloat = 25
+        static let heightImageConstraint: CGFloat = 50
+        static let widthImageConstraint: CGFloat = 55
     }
 
     @IBInspectable var leftIconImage: UIImage = UIImage() {
         didSet {
             do {
-                try setTextEditLateralContainer(isLeft: true)
+                try setLeftImage()
             } catch {}
         }
     }
 
-    func setTextEditLateralContainer(isLeft: Bool) throws {
+    func setLeftImage() throws {
         fatalError("Sobreescribe este método en el control final para que asigne la imagen!!")
     }
     
-    func addConstraintsView (viewToAddContraints: UIView, viewReference: UIView) {
+    // Constraints padres de todos los controles!!
+    func addImageLftConstraints (viewToAddContraints: UIView, viewReference: UIView) -> [NSLayoutConstraint] {
         viewToAddContraints.translatesAutoresizingMaskIntoConstraints = false
-        let centerYImageView = viewToAddContraints.centerYAnchor.constraint(equalTo: viewReference.centerYAnchor)
-        let centerXImageView = viewToAddContraints.centerXAnchor.constraint(equalTo: viewReference.centerXAnchor)
-        let heightImageView = viewToAddContraints.heightAnchor.constraint(equalToConstant: 25)
-        let widhtImageView = viewToAddContraints.widthAnchor.constraint(equalToConstant: 55)
+        let centerYConstraint = viewToAddContraints.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        let heightConstraint = viewToAddContraints.heightAnchor.constraint(equalToConstant: ConstantsConstraints.imageSize)
+        let widhtConstraint = viewToAddContraints.widthAnchor.constraint(equalToConstant: ConstantsConstraints.widthImageConstraint)
+        let leadingConstraint = viewToAddContraints.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0)
         
-        var constraintsImage = [NSLayoutConstraint]()
-        constraintsImage.append(contentsOf: [centerYImageView, centerXImageView, heightImageView, widhtImageView])
-        NSLayoutConstraint.activate(constraintsImage)
+        return [centerYConstraint, heightConstraint, widhtConstraint, leadingConstraint]
+    }
+    
+    func addContentConstraints (viewToAddContraints: UIView, viewReference: UIView) -> [NSLayoutConstraint] {
+        viewToAddContraints.translatesAutoresizingMaskIntoConstraints = false
+        let heightConstraint = viewToAddContraints.heightAnchor.constraint(equalToConstant: ConstantsConstraints.heightImageConstraint)
+        let topConstraint = viewToAddContraints.topAnchor.constraint(equalTo: self.topAnchor, constant: 0)
+        let bottomConstraint = viewToAddContraints.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
+        let leadingConstraint = viewToAddContraints.leadingAnchor.constraint(equalTo: viewReference.trailingAnchor, constant: 10)
+        let trailingConstraint = viewToAddContraints.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        
+        return [heightConstraint, topConstraint, bottomConstraint, trailingConstraint, leadingConstraint]
     }
 }

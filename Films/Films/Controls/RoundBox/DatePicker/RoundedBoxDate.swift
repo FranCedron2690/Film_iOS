@@ -29,9 +29,8 @@ class RoundedBoxDate: RoundBoxControl, RoundedBoxDateProtocol {
     override func commonInit() {
         nibName = String(describing: type(of: self))
         xibSetup()
-        addImageLftConstraints(viewToAddContraints: imageLeft, viewReference: contentView)
-        addContentConstraints(viewToAddContraints: contentView, viewReference: imageLeft)
-        addInternalConstraints(parent: contentView, labelView: labelDescription, datePickerView: datePicker)
+        
+        addAllConstraints()
         
         datePicker.rx.date.changed.distinctUntilChanged().subscribe { [weak self] event in
             switch event {
@@ -45,49 +44,7 @@ class RoundedBoxDate: RoundBoxControl, RoundedBoxDateProtocol {
         }.disposed(by: disposeBag)
     }
     
-    func addImageLftConstraints (viewToAddContraints: UIView, viewReference: UIView) {
-        viewToAddContraints.translatesAutoresizingMaskIntoConstraints = false
-        let centerYImageView = viewToAddContraints.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        let heightImageView = viewToAddContraints.heightAnchor.constraint(equalToConstant: 25)
-        let widhtImageView = viewToAddContraints.widthAnchor.constraint(equalToConstant: 50)
-        let leadingConstant = viewToAddContraints.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0)
-        var constraintsImage = [NSLayoutConstraint]()
-        constraintsImage.append(contentsOf: [centerYImageView, heightImageView, widhtImageView, leadingConstant])
-        NSLayoutConstraint.activate(constraintsImage)
-    }
-    
-    func addContentConstraints (viewToAddContraints: UIView, viewReference: UIView) {
-        viewToAddContraints.translatesAutoresizingMaskIntoConstraints = false
-        let heightImageView = viewToAddContraints.heightAnchor.constraint(equalToConstant: 50)
-        let topConstant = viewToAddContraints.topAnchor.constraint(equalTo: self.topAnchor, constant: 0)
-        let bottomConstant = viewToAddContraints.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
-        let leadingConstant = viewToAddContraints.leadingAnchor.constraint(equalTo: viewReference.trailingAnchor, constant: 10)
-        let trailingConstant = viewToAddContraints.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20)
-        
-        var constraintsImage = [NSLayoutConstraint]()
-        constraintsImage.append(contentsOf: [heightImageView, topConstant, bottomConstant, trailingConstant, leadingConstant])
-        NSLayoutConstraint.activate(constraintsImage)
-    }
-    
-    func addInternalConstraints (parent: UIView ,labelView: UIView, datePickerView: UIView) {
-        labelView.translatesAutoresizingMaskIntoConstraints = false
-        datePickerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let topLabelConstraint = labelView.topAnchor.constraint(equalTo: parent.topAnchor, constant: 0)
-        let bottomLabelConstraint = labelView.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: 0)
-        let leadingLabelConstraint = labelView.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 0)
-        let trailingLabelConstraint = labelView.trailingAnchor.constraint(equalTo: datePickerView.leadingAnchor, constant: 10)
-        
-        let topDatePickerConstraint = datePickerView.topAnchor.constraint(equalTo: parent.topAnchor, constant: 0)
-        let bottomDatePickerConstraint = datePickerView.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: 0)
-        let leadingDatePickerConstraint = datePickerView.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: 0)
-        
-        var constraintsImage = [NSLayoutConstraint]()
-        constraintsImage.append(contentsOf: [topLabelConstraint, bottomLabelConstraint, leadingLabelConstraint, trailingLabelConstraint, topDatePickerConstraint, bottomDatePickerConstraint, leadingDatePickerConstraint])
-        NSLayoutConstraint.activate(constraintsImage)
-    }
-    
-    override func setTextEditLateralContainer(isLeft: Bool) {
+    override func setLeftImage() {
         imageLeft.image = leftIconImage
     }
     
@@ -96,6 +53,35 @@ class RoundedBoxDate: RoundBoxControl, RoundedBoxDateProtocol {
     }
 }
 
-extension RoundedBoxDate: UIPickerViewDelegate {
+// MARK: - Constraints
+extension RoundedBoxDate {
+    func addAllConstraints() {
+        var constraints = [NSLayoutConstraint]()
+        constraints.append(contentsOf: addImageLftConstraints(viewToAddContraints: imageLeft, viewReference: contentView))
+        constraints.append(contentsOf: addContentConstraints(viewToAddContraints: contentView, viewReference: imageLeft))
+        constraints.append(contentsOf: addInternalConstraints())
+        constraints.append(contentsOf: addContentLabelConstraints())
+        NSLayoutConstraint.activate(constraints)
+    }
     
+    func addInternalConstraints () -> [NSLayoutConstraint] {
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        
+        let topDatePickerConstraint = datePicker.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0)
+        let bottomDatePickerConstraint = datePicker.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+        let leadingDatePickerConstraint = datePicker.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0)
+        
+        return [topDatePickerConstraint, bottomDatePickerConstraint, leadingDatePickerConstraint]
+    }
+    
+    func addContentLabelConstraints() -> [NSLayoutConstraint] {
+        labelDescription.translatesAutoresizingMaskIntoConstraints = false
+        
+        let topLabelConstraint = labelDescription.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0)
+        let bottomLabelConstraint = labelDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+        let leadingLabelConstraint = labelDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0)
+        let trailingLabelConstraint = labelDescription.trailingAnchor.constraint(equalTo: datePicker.leadingAnchor, constant: 10)
+        
+        return [topLabelConstraint, bottomLabelConstraint, leadingLabelConstraint, trailingLabelConstraint]
+    }
 }

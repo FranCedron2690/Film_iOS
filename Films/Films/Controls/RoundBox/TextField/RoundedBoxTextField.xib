@@ -4,11 +4,14 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoundedBoxTextField" customModule="Films" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="BSK-Qf-ScH" id="djf-nX-OXP"/>
+                <outlet property="imageLeft" destination="uPx-zQ-X7k" id="Wop-bz-XtX"/>
                 <outlet property="textFieldData" destination="Y7q-Uv-UJj" id="FMy-Hc-qpi"/>
             </connections>
         </placeholder>
@@ -17,24 +20,73 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="texto....." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-Uv-UJj" userLabel="TextField">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="Ebd-zs-BoZ"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                </textField>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSK-Qf-ScH">
+                    <rect key="frame" x="63" y="0.0" width="351" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="texto....." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-Uv-UJj" userLabel="TextField">
+                            <rect key="frame" x="0.0" y="0.0" width="134" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        </textField>
+                    </subviews>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uPx-zQ-X7k">
+                    <rect key="frame" x="0.0" y="13" width="50" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="LuY-ly-K7R"/>
-            <constraints>
-                <constraint firstItem="Y7q-Uv-UJj" firstAttribute="leading" secondItem="Ial-gt-8c5" secondAttribute="leading" id="RkH-Ff-Y9f"/>
-                <constraint firstAttribute="trailing" secondItem="Y7q-Uv-UJj" secondAttribute="trailing" id="gUq-lH-wNV"/>
-                <constraint firstItem="Y7q-Uv-UJj" firstAttribute="bottom" secondItem="Ial-gt-8c5" secondAttribute="bottom" id="p6p-XS-0lS"/>
-                <constraint firstItem="Y7q-Uv-UJj" firstAttribute="top" secondItem="Ial-gt-8c5" secondAttribute="top" id="tNc-h6-DKq"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="302.89855072463769" y="175.44642857142856"/>
         </view>
+        <view contentMode="scaleToFill" id="y4h-zH-GgY">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UFz-36-jFg">
+                    <rect key="frame" x="0.0" y="12.5" width="50" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="RBu-4x-weZ"/>
+                        <constraint firstAttribute="height" constant="25" id="YPs-ym-wPn"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ov-Tj-SkI">
+                    <rect key="frame" x="60" y="0.0" width="334" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="texto....." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hHh-oq-sUN" userLabel="TextField">
+                            <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="hHh-oq-sUN" firstAttribute="leading" secondItem="1Ov-Tj-SkI" secondAttribute="leading" id="4DE-Cy-sj0"/>
+                        <constraint firstItem="hHh-oq-sUN" firstAttribute="top" secondItem="1Ov-Tj-SkI" secondAttribute="top" id="9IO-EE-8rR"/>
+                        <constraint firstAttribute="bottom" secondItem="hHh-oq-sUN" secondAttribute="bottom" id="Qx6-6T-SBM"/>
+                        <constraint firstAttribute="trailing" secondItem="hHh-oq-sUN" secondAttribute="trailing" id="UDZ-yt-hWn"/>
+                        <constraint firstAttribute="height" constant="50" id="XyJ-bk-JGR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="rJT-n8-Wx8"/>
+            <constraints>
+                <constraint firstItem="UFz-36-jFg" firstAttribute="leading" secondItem="rJT-n8-Wx8" secondAttribute="leading" id="6Py-Lc-f2z"/>
+                <constraint firstAttribute="bottom" secondItem="1Ov-Tj-SkI" secondAttribute="bottom" id="GRK-Tn-bZW"/>
+                <constraint firstItem="UFz-36-jFg" firstAttribute="centerY" secondItem="y4h-zH-GgY" secondAttribute="centerY" id="ReE-df-3pV"/>
+                <constraint firstItem="rJT-n8-Wx8" firstAttribute="trailing" secondItem="1Ov-Tj-SkI" secondAttribute="trailing" constant="20" id="TgV-QD-gEL"/>
+                <constraint firstItem="1Ov-Tj-SkI" firstAttribute="top" secondItem="y4h-zH-GgY" secondAttribute="top" id="cDE-pb-M6Q"/>
+                <constraint firstItem="1Ov-Tj-SkI" firstAttribute="leading" secondItem="UFz-36-jFg" secondAttribute="trailing" constant="10" id="dMJ-aI-nWm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="303" y="260"/>
+        </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -10,11 +10,13 @@ import UIKit
 @IBDesignable
 class RoundedBoxTextField: RoundBoxControl, RoundedBoxTextFieldProtocol {
     
+    @IBOutlet weak var imageLeft: UIImageView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var textFieldData: UITextField!
     
     @IBInspectable var secureImageEnabled: UIImage = UIImage() {
         didSet {
-            setTextEditLateralContainer(isLeft: false)
+            setRightImage()
         }
     }
     
@@ -43,16 +45,14 @@ class RoundedBoxTextField: RoundBoxControl, RoundedBoxTextFieldProtocol {
     override func commonInit() {
         nibName = String(describing: type(of: self))
         xibSetup()
+        
+        addAllConstraints()
 
         textFieldData.delegate = self
     }
 
-    override func setTextEditLateralContainer(isLeft: Bool) {
-        if isLeft {
-            setLeftViewMode()
-        } else {
-            setRightViewMode()
-        }
+    override func setLeftImage() {
+        imageLeft.image = leftIconImage
     }
     
     func setSecurityText() {
@@ -69,24 +69,16 @@ class RoundedBoxTextField: RoundBoxControl, RoundedBoxTextFieldProtocol {
 }
 
 extension RoundedBoxTextField {
-    func setLeftViewMode () {
-        let imageView = UIImageView()
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = leftIconImage
-        textFieldData.leftView = imageView
-        addConstraintsView(viewToAddContraints: imageView, viewReference: textFieldData.leftView!)
-        textFieldData.leftViewMode = .always
-    }
-    
-    func setRightViewMode () {
-        let buttonImage = UIButton()
-//        buttonImage.translatesAutoresizingMaskIntoConstraints = false
-        buttonImage.setImage(secureImageEnabled, for: .normal)
-        buttonImage.imageView?.contentMode = .scaleAspectFit
-        buttonImage.addTarget(self, action: #selector(onTouchShowSecureText), for: .touchDown)
-        textFieldData.rightView = buttonImage
-        addConstraintsView(viewToAddContraints: buttonImage, viewReference: textFieldData.rightView!)
+    func setRightImage () {
+        let imageButton = UIButton()
+        imageButton.translatesAutoresizingMaskIntoConstraints = false
+        imageButton.setImage(secureImageEnabled, for: .normal)
+        imageButton.imageView?.contentMode = .scaleAspectFit
+        imageButton.addTarget(self, action: #selector(onTouchShowSecureText), for: .touchDown)
+        textFieldData.rightView = imageButton
+        
+        NSLayoutConstraint.activate(addConstraintsTextFieldRightContent(view: imageButton))
+        
         textFieldData.rightViewMode = .always
     }
     
@@ -99,6 +91,39 @@ extension RoundedBoxTextField {
             container.addSubview(buttonImage)
             textFieldData.rightView = container
         }
+    }
+}
+
+// MARK: - Constraints
+extension RoundedBoxTextField {
+    func addAllConstraints() {
+        var constraints = [NSLayoutConstraint]()
+        constraints.append(contentsOf: addImageLftConstraints(viewToAddContraints: imageLeft, viewReference: contentView))
+        constraints.append(contentsOf: addContentConstraints(viewToAddContraints: contentView, viewReference: imageLeft))
+        constraints.append(contentsOf: addConstraintsTextFieldContent())
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    func addConstraintsTextFieldContent () -> [NSLayoutConstraint] {
+        textFieldData.translatesAutoresizingMaskIntoConstraints = false
+        let trailingConstraint = textFieldData.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0)
+        let leadingConstraint = textFieldData.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0)
+        let topConstraint = textFieldData.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0)
+        let bottomConstraint = textFieldData.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+        
+        return [trailingConstraint, leadingConstraint, topConstraint, bottomConstraint ]
+    }
+    
+    func addConstraintsTextFieldRightContent (view: UIButton) -> [NSLayoutConstraint] {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let rightView = textFieldData.rightView!
+        let centerYConstraint = view.centerYAnchor.constraint(equalTo: rightView.centerYAnchor)
+        let centerXConstraint = view.centerXAnchor.constraint(equalTo: rightView.centerXAnchor)
+        let heightConstraint = view.heightAnchor.constraint(equalToConstant: ConstantsConstraints.imageSize)
+        let widhtConstraint = view.widthAnchor.constraint(equalToConstant: ConstantsConstraints.imageSize)
+        
+        return [centerYConstraint, centerXConstraint, heightConstraint, widhtConstraint]
     }
 }
 

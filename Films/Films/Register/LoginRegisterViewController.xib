@@ -56,8 +56,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyu-Iv-4Wa" userLabel="CalendarTextField" customClass="RoundedBoxDate" customModule="Films" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="160" width="300" height="50"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="placelolder" value="Nac:"/>
                                 <userDefinedRuntimeAttribute type="image" keyPath="leftIconImage" value="calendar" catalog="system"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textDescription" value="F.Nac:"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3FM-z9-5oz" userLabel="PostalCodeTextField" customClass="RoundedBoxTextField" customModule="Films" customModuleProvider="target">
