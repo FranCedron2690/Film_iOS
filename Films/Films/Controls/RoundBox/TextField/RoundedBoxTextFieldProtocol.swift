@@ -9,13 +9,7 @@ import Foundation
 import UIKit
 
 protocol RoundedBoxTextFieldProtocol {
-    var secureImageEnabled: UIImage {get set}
-    var secureImageDisabled: UIImage {get set}
-    var isPassword: Bool {get set}
     var placelolder: String {get set}    
-    var numericKeyboard: Bool {get set}
     func setLeftImage()
-    func setSecurityText()
     func setPlaceholder()
-    func setNumericKeyboard()
 }

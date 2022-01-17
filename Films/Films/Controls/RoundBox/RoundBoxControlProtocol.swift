@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol RoundBoxControlProtocol {
+    func commonInit() throws
     var leftIconImage: UIImage {get set}
     func setLeftImage() throws
 }

@@ -9,14 +9,13 @@ import Foundation
 import UIKit
 
 extension UIButton: StyleProtocol {
-    func applyStyle(style: GenericStyle) {
-        if let buttonStyle = style as? Styles.Buttons {
-            self.applyGradient(colors: buttonStyle.gradientColors)
-            self.titleLabel?.font = buttonStyle.font
-            self.titleLabel?.textColor = buttonStyle.colorFont
-            if buttonStyle.hasShadow {
-                self.applyShadow()
-            }
+    typealias Style = Styles.Buttons
+    func applyStyle(_ style: Style) {
+        self.applyGradient(colors: style.gradientColors)
+        self.titleLabel?.font = style.font
+        self.titleLabel?.textColor = style.colorFont
+        if style.hasShadow {
+            self.applyShadow()
         }
     }
 }

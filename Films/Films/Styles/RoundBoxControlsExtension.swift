@@ -8,13 +8,12 @@
 import Foundation
 
 extension RoundBoxControl: StyleProtocol {
-    func applyStyle(style: GenericStyle) {
-        if let roundBoxStyle = style as? Styles.RoundBoxControls {
-            self.layer.cornerRadius = self.frame.height / 2
-            self.backgroundColor = roundBoxStyle.BGColor
-            if roundBoxStyle.hasShadow {
-                self.applyShadow()
-            }
+    typealias Style = Styles.RoundBoxControls
+    func applyStyle(_ style: Style) {
+        self.layer.cornerRadius = self.frame.height / 2
+        self.backgroundColor = style.BGColor
+        if style.hasShadow {
+            self.applyShadow()
         }
     }
 }

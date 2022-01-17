@@ -27,6 +27,28 @@ class RoundBoxControl: CustomControl, RoundBoxControlProtocol {
             } catch {}
         }
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        do {
+            try commonInit()
+        } catch {
+            
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        do {
+            try commonInit()
+        } catch {
+            
+        }
+    }
+    
+    func commonInit() throws {
+        fatalError("Debes sobreescribir este método, para establecer el nibName con y llamar en la siguiente linea a xibSetup()!!")
+    }
 
     func setLeftImage() throws {
         fatalError("Sobreescribe este método en el control final para que asigne la imagen!!")

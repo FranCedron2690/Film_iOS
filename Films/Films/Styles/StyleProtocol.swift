@@ -8,5 +8,6 @@
 import Foundation
 
 protocol StyleProtocol {
-    func applyStyle(style: GenericStyle)
+    associatedtype Style: GenericStyle
+    func applyStyle(_ style: Style)
 }

@@ -10,7 +10,6 @@ import UIKit
 
 protocol CustomControlProtocol {
     var nibName: String? { get set }
-    func commonInit() throws
     func loadViewFromNib() -> UIView?
     func xibSetup()
 }

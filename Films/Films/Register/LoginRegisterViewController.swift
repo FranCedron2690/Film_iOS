@@ -12,8 +12,8 @@ class LoginRegisterViewController: BaseViewController {
     
     @IBOutlet weak var singUpTitleLabel: UILabel!
     @IBOutlet weak var userTextField: RoundedBoxTextField!
-    @IBOutlet weak var mailTextField: RoundedBoxTextField!
-    @IBOutlet weak var passwordTextField: RoundedBoxTextField!
+    @IBOutlet weak var mailTextField: RoundedBoxTextField!    
+    @IBOutlet weak var passwordTextField: RoundedBoxPassword!
     @IBOutlet weak var codePostalRoundBoxControl: RoundedBoxTextField!
     @IBOutlet weak var dateBornRoundBoxControl: RoundedBoxDate!
     @IBOutlet weak var aceptedDataSwitch: UISwitch!
@@ -35,12 +35,15 @@ class LoginRegisterViewController: BaseViewController {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
                 
-//        viewModel?.user
-//            .observe(on: MainScheduler.instance)
-//            .bind(to: self.userTextField.textFieldData.rx.text)
-//            .disposed(by: disposeBag)
-//        
-//        userTextField.textFieldData.rx.text.observeOn(MainScheduler.instance).bind(to: viewModel?.user).disposed(by: disposeBag)
+        viewModel?.user
+            .observe(on: MainScheduler.instance)
+            .bind(to: self.userTextField.textFieldData.rx.text)
+            .disposed(by: disposeBag)
+        
+        self.userTextField.textFieldData.rx.text
+            .orEmpty
+            .bind(to: viewModel!.user)
+            .disposed(by: disposeBag)
                 
         translateTexts()
         applyStyles()
@@ -121,17 +124,17 @@ extension LoginRegisterViewController: UIViewControllerProtocol {
     }
     
     func applyStyles() {
-        singUpTitleLabel.applyStyle(style: Styles.Labels.titleLabel)
-        textInfoAgreeTerms.applyStyle(style: Styles.Labels.thinLabelInfo)
-        errorInfoLabel.applyStyle(style: Styles.Labels.errorLabel)
-        existAccountLabel.applyStyle(style: Styles.Labels.thinLabelInfo)
+        singUpTitleLabel.applyStyle(Styles.Labels.titleLabel)
+        textInfoAgreeTerms.applyStyle(Styles.Labels.thinLabelInfo)
+        errorInfoLabel.applyStyle(Styles.Labels.errorLabel)
+        existAccountLabel.applyStyle(Styles.Labels.thinLabelInfo)
                 
-        createAccountButton.applyStyle(style: Styles.Buttons.mainButton)
+        createAccountButton.applyStyle(Styles.Buttons.mainButton)
         
-        userTextField.applyStyle(style: Styles.RoundBoxControls.textEdit)
-        mailTextField.applyStyle(style: Styles.RoundBoxControls.textEdit)
-        passwordTextField.applyStyle(style: Styles.RoundBoxControls.textEdit)
-        codePostalRoundBoxControl.applyStyle(style: Styles.RoundBoxControls.textEdit)
-        dateBornRoundBoxControl.applyStyle(style: Styles.RoundBoxControls.datePicker)
+        userTextField.applyStyle(Styles.RoundBoxControls.textEdit)
+        mailTextField.applyStyle(Styles.RoundBoxControls.textEdit)
+        passwordTextField.applyStyle(Styles.RoundBoxControls.textEdit)
+        codePostalRoundBoxControl.applyStyle(Styles.RoundBoxControls.textEdit)
+        dateBornRoundBoxControl.applyStyle(Styles.RoundBoxControls.datePicker)
     }
 }

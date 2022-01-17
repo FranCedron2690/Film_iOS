@@ -38,6 +38,10 @@
 		617AA54B278DDA32006E4C79 /* stringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617AA54A278DDA32006E4C79 /* stringExtension.swift */; };
 		617AA54D278DDC2B006E4C79 /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617AA54C278DDC2B006E4C79 /* UIViewControllerProtocol.swift */; };
 		617AA54F278DE3F4006E4C79 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617AA54E278DE3F4006E4C79 /* Styles.swift */; };
+		617B14832795B7EE0024FA0C /* RoundedBoxPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B14822795B7EE0024FA0C /* RoundedBoxPassword.swift */; };
+		617B14852795B8280024FA0C /* RoundedBoxPasswordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B14842795B8280024FA0C /* RoundedBoxPasswordProtocol.swift */; };
+		617B148B2795BF340024FA0C /* RoundedBoxNormalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B148A2795BF340024FA0C /* RoundedBoxNormalTextField.swift */; };
+		617B148D2795C65B0024FA0C /* RoundedBoxNormalTextFieldProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B148C2795C65B0024FA0C /* RoundedBoxNormalTextFieldProtocol.swift */; };
 		617D923E277325CD00F2735B /* MovieCategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617D923D277325CD00F2735B /* MovieCategoriesModel.swift */; };
 		617D924127734C0500F2735B /* SelectedMoviePoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617D924027734C0500F2735B /* SelectedMoviePoster.swift */; };
 		617D92452773509000F2735B /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617D92432773509000F2735B /* MovieDetailViewController.swift */; };
@@ -119,6 +123,10 @@
 		617AA54A278DDA32006E4C79 /* stringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stringExtension.swift; sourceTree = "<group>"; };
 		617AA54C278DDC2B006E4C79 /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
 		617AA54E278DE3F4006E4C79 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		617B14822795B7EE0024FA0C /* RoundedBoxPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBoxPassword.swift; sourceTree = "<group>"; };
+		617B14842795B8280024FA0C /* RoundedBoxPasswordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBoxPasswordProtocol.swift; sourceTree = "<group>"; };
+		617B148A2795BF340024FA0C /* RoundedBoxNormalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBoxNormalTextField.swift; sourceTree = "<group>"; };
+		617B148C2795C65B0024FA0C /* RoundedBoxNormalTextFieldProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBoxNormalTextFieldProtocol.swift; sourceTree = "<group>"; };
 		617D923D277325CD00F2735B /* MovieCategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoriesModel.swift; sourceTree = "<group>"; };
 		617D924027734C0500F2735B /* SelectedMoviePoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMoviePoster.swift; sourceTree = "<group>"; };
 		617D92432773509000F2735B /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +330,24 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		617B147E2795B7930024FA0C /* PasswordTextField */ = {
+			isa = PBXGroup;
+			children = (
+				617B14842795B8280024FA0C /* RoundedBoxPasswordProtocol.swift */,
+				617B14822795B7EE0024FA0C /* RoundedBoxPassword.swift */,
+			);
+			path = PasswordTextField;
+			sourceTree = "<group>";
+		};
+		617B14812795B7BC0024FA0C /* NormalTextField */ = {
+			isa = PBXGroup;
+			children = (
+				617B148A2795BF340024FA0C /* RoundedBoxNormalTextField.swift */,
+				617B148C2795C65B0024FA0C /* RoundedBoxNormalTextFieldProtocol.swift */,
+			);
+			path = NormalTextField;
+			sourceTree = "<group>";
+		};
 		617D923F2773399B00F2735B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,9 +466,11 @@
 		61B3BB3927904BCE00C18186 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				61792DD1278C3CD9001BAD8F /* RoundedBoxTextField.swift */,
 				61B3BB43279081A400C18186 /* RoundedBoxTextFieldProtocol.swift */,
+				61792DD1278C3CD9001BAD8F /* RoundedBoxTextField.swift */,
 				61792DD5278C55BC001BAD8F /* RoundedBoxTextField.xib */,
+				617B14812795B7BC0024FA0C /* NormalTextField */,
+				617B147E2795B7930024FA0C /* PasswordTextField */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -715,6 +743,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617B148D2795C65B0024FA0C /* RoundedBoxNormalTextFieldProtocol.swift in Sources */,
 				61709A4127916F7000555658 /* RoundBoxControlsExtension.swift in Sources */,
 				6179609C2785E6C900154E5D /* MovieTabBarController.swift in Sources */,
 				6126F59F2779D007001AB810 /* SelectedMovie.swift in Sources */,
@@ -727,6 +756,7 @@
 				61709A45279172D000555658 /* ButtonExtension.swift in Sources */,
 				61D8B9682772124200F903AE /* MovieListModel.swift in Sources */,
 				61B3BB3E27904E8000C18186 /* RoundBoxControlProtocol.swift in Sources */,
+				617B14852795B8280024FA0C /* RoundedBoxPasswordProtocol.swift in Sources */,
 				617D923E277325CD00F2735B /* MovieCategoriesModel.swift in Sources */,
 				61C05A3C2771D5050013CAC8 /* MoviesService.swift in Sources */,
 				6126F5962779C391001AB810 /* MovieListContainerCoordinator.swift in Sources */,
@@ -736,12 +766,14 @@
 				61B3BB4027904ECC00C18186 /* RoundedBoxDateProtocol.swift in Sources */,
 				61AB621D27736DE3004B7817 /* NetworkManager.swift in Sources */,
 				6172906E2775E124009ADF3D /* MoviesListByCategoryViewCell.swift in Sources */,
+				617B14832795B7EE0024FA0C /* RoundedBoxPassword.swift in Sources */,
 				617A89942782F9AC004A7D5D /* BaseViewController.swift in Sources */,
 				6126F59D2779CD0B001AB810 /* MovieDetailCoordinator.swift in Sources */,
 				617D924127734C0500F2735B /* SelectedMoviePoster.swift in Sources */,
 				6126F5922779BA52001AB810 /* Coordinator.swift in Sources */,
 				617D92452773509000F2735B /* MovieDetailViewController.swift in Sources */,
 				61C05A222771CF460013CAC8 /* AppDelegate.swift in Sources */,
+				617B148B2795BF340024FA0C /* RoundedBoxNormalTextField.swift in Sources */,
 				6126F59A2779CB12001AB810 /* LoginViewDelegate.swift in Sources */,
 				619E0B12277C589B0028F562 /* NetworkError.swift in Sources */,
 				619E0B16277C746E0028F562 /* AlertToCoordinator.swift in Sources */,

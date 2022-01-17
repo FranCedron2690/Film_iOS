@@ -10,9 +10,8 @@ import UIKit
 import RxSwift
 
 extension UILabel: StyleProtocol {
-    func applyStyle(style: GenericStyle) {
-        if let styleLabel = style as? Styles.Labels {
-            self.font = styleLabel.font
-        }
+    typealias Style = Styles.Labels
+    func applyStyle(_ style: Style) {
+        self.font = style.font
     }
 }

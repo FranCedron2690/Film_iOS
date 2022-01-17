@@ -11,7 +11,7 @@ import RxCocoa
 
 class LoginRegisterViewModel: BaseViewModel {
     
-    public let user = BehaviorRelay<String>(value: "prueba")
+    public let user = BehaviorRelay<String>(value: "")
 
     private weak var loginRegisterDelegate: LoginRegisterDelegate?
 

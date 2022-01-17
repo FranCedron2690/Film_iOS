@@ -7,26 +7,11 @@
 
 import UIKit
 
-@IBDesignable
 class RoundedBoxTextField: RoundBoxControl, RoundedBoxTextFieldProtocol {
     
     @IBOutlet weak var imageLeft: UIImageView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var textFieldData: UITextField!
-    
-    @IBInspectable var secureImageEnabled: UIImage = UIImage() {
-        didSet {
-            setRightImage()
-        }
-    }
-    
-    @IBInspectable var secureImageDisabled: UIImage = UIImage()
-    
-    @IBInspectable var isPassword: Bool = Bool() {
-        didSet {
-            setSecurityText()
-        }
-    }
     
     @IBInspectable var placelolder: String = String() {
         didSet {
@@ -34,67 +19,25 @@ class RoundedBoxTextField: RoundBoxControl, RoundedBoxTextFieldProtocol {
         }
     }
     
-    @IBInspectable var numericKeyboard : Bool = false {
-        didSet {
-            if numericKeyboard {
-                setNumericKeyboard()
-            }
-        }
-    }
-    
     override func commonInit() {
-        nibName = String(describing: type(of: self))
+        nibName = String("RoundedBoxTextField")
         xibSetup()
         
         addAllConstraints()
-
+        
         textFieldData.delegate = self
     }
-
+    
     override func setLeftImage() {
         imageLeft.image = leftIconImage
-    }
-    
-    func setSecurityText() {
-        textFieldData.isSecureTextEntry = isPassword
     }
     
     func setPlaceholder() {
         textFieldData.placeholder = placelolder
     }
-    
-    func setNumericKeyboard() {
-        textFieldData.keyboardType = .numberPad
-    }
 }
 
-extension RoundedBoxTextField {
-    func setRightImage () {
-        let imageButton = UIButton()
-        imageButton.translatesAutoresizingMaskIntoConstraints = false
-        imageButton.setImage(secureImageEnabled, for: .normal)
-        imageButton.imageView?.contentMode = .scaleAspectFit
-        imageButton.addTarget(self, action: #selector(onTouchShowSecureText), for: .touchDown)
-        textFieldData.rightView = imageButton
-        
-        NSLayoutConstraint.activate(addConstraintsTextFieldRightContent(view: imageButton))
-        
-        textFieldData.rightViewMode = .always
-    }
-    
-    @objc func onTouchShowSecureText() {
-        isPassword = !isPassword
-        
-        if let container = textFieldData.rightView, let buttonImage = container.subviews[0] as? UIButton {
-            let image = isPassword ? secureImageEnabled : secureImageDisabled
-            buttonImage.setImage(image, for: .normal)
-            container.addSubview(buttonImage)
-            textFieldData.rightView = container
-        }
-    }
-}
-
-// MARK: - Constraints
+// Constraints
 extension RoundedBoxTextField {
     func addAllConstraints() {
         var constraints = [NSLayoutConstraint]()
