@@ -27,7 +27,7 @@ class RoundedBoxDate: RoundBoxControl, RoundedBoxDateProtocol {
     private let disposeBag = DisposeBag()
     
     override func commonInit() {
-        nibName = String(describing: type(of: self))
+        nibName = String("RoundedBoxDate")
         xibSetup()
         
         addAllConstraints()

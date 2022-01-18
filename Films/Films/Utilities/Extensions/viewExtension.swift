@@ -10,13 +10,15 @@ import UIKit
 
 extension UIView {
     func applyGradient(colors: [CGColor], isRouded: Bool = true) {
-        self.backgroundColor = nil
+//        self.backgroundColor = nil
         self.layoutIfNeeded()
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = colors
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         gradientLayer.frame = self.bounds
+        
+        print("Width Gradiente: \(gradientLayer.frame)")
         
         if isRouded {
             gradientLayer.cornerRadius = self.frame.height/2
