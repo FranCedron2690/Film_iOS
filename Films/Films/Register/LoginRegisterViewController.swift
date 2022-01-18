@@ -35,15 +35,15 @@ class LoginRegisterViewController: BaseViewController {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
                 
-        viewModel?.user
-            .observe(on: MainScheduler.instance)
-            .bind(to: self.userTextField.textFieldData.rx.text)
-            .disposed(by: disposeBag)
-        
-        self.userTextField.textFieldData.rx.text
-            .orEmpty
-            .bind(to: viewModel!.user)
-            .disposed(by: disposeBag)
+//        viewModel?.user
+//            .observe(on: MainScheduler.instance)
+//            .bind(to: self.userTextField.textFieldData.rx.text)
+//            .disposed(by: disposeBag)
+//
+//        self.userTextField.textFieldData.rx.text
+//            .orEmpty
+//            .bind(to: viewModel!.user)
+//            .disposed(by: disposeBag)
                 
         translateTexts()
         applyStyles()
